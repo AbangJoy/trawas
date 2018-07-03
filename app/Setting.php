@@ -8,4 +8,5 @@ class Setting extends Model
 {
     protected $casts = ['menu' => 'array'];
     protected $guarded = [];
+    public $timestamps = false;
 }
