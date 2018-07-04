@@ -1,6 +1,5 @@
 @extends('layouts.master')
 @section('content')
-
 <div class="content-wrapper">
     <div class="container-fluid">
         @include('layouts.flash')
@@ -36,9 +35,10 @@
 <input type="text" name="menu10" placeholder="menu10" value = "{{ $setting->menu ? $setting->menu['menu10'] : '' }}" required>
 <br>
 <br>
-<button type="submit" name="submit">Simpan</button>
+<button class="btn btn-success" type="submit" name="submit">Simpan</button>
         </form>
     </div>
+@include('layouts.script')
 </div>
 
 @endsection

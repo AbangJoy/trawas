@@ -1,7 +1,5 @@
 <?php
 
-use App\Setting;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,8 +12,7 @@ use App\Setting;
  */
 
 Route::get('/', function () {
-    $setting = Setting::firstOrFail();
-    return view('welcome', compact('setting'));
+    return view('welcome');
 })->name('index');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -32,9 +29,13 @@ Route::get('home', 'HomeController@index')->name('home');
 Route::get('menu', 'HomeController@menu')->name('menu');
 Route::post('menu/edit', 'HomeController@editMenu')->name('edit.menu');
 
+Route::resource('beranda', 'BerandaController');
 Route::resource('staf', 'StafController');
 Route::resource('desa', 'DesaController');
 Route::resource('wisata', 'WisataController');
 Route::resource('produk', 'ProdukController');
 Route::resource('galeri', 'GaleriController');
 Route::resource('berita', 'BeritaController');
+Route::resource('profil', 'ProfilController');
+Route::resource('informasi', 'InformasiController');
+Route::resource('kontak', 'KontakController');
