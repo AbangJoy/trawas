@@ -4,9 +4,9 @@
 <div class="content-wrapper">
     <div class="container-fluid">
         @include('layouts.flash')
-        <form action="{{ route('create.staf') }}" method="POST">
-        {{ csrf_field() }}
-            <h1>produk</h1>
+        <form action="{{ url('produk') }}" method="POST">
+        @csrf
+            <h1>Produk</h1>
         </form>
     </div>
 </div>

@@ -7,43 +7,43 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
-          <a class="nav-link" href="{{ route('menu') }}">
+          <a class="nav-link" href="{{ url('menu') }}">
             <i class="fa fa-fw fa-dashboard"></i>
             <span class="nav-link-text">Menu</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="staf">
-          <a class="nav-link" href="{{ route('staf') }}">
+          <a class="nav-link" href="{{ url('staf') }}">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Staf</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="desa">
-          <a class="nav-link" href="{{ route('desa') }}">
+          <a class="nav-link" href="{{ url('desa') }}">
             <i class="fa fa-fw fa-table"></i>
             <span class="nav-link-text">Desa</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="wisata">
-            <a class="nav-link" href="{{ route('wisata') }}">
+            <a class="nav-link" href="{{ url('wisata') }}">
               <i class="fa fa-fw fa-table"></i>
               <span class="nav-link-text">Wisata</span>
             </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="produk">
-            <a class="nav-link" href="{{ route('produk') }}">
+            <a class="nav-link" href="{{ url('produk') }}">
               <i class="fa fa-fw fa-table"></i>
               <span class="nav-link-text">Produk</span>
             </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="galeri">
-            <a class="nav-link" href="{{ route('galeri') }}">
+            <a class="nav-link" href="{{ url('galeri') }}">
               <i class="fa fa-fw fa-table"></i>
               <span class="nav-link-text">Galeri</span>
             </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="berita">
-            <a class="nav-link" href="{{ route('berita') }}">
+            <a class="nav-link" href="{{ url('berita') }}">
               <i class="fa fa-fw fa-table"></i>
               <span class="nav-link-text">Berita</span>
             </a>
