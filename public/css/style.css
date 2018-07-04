@@ -227,6 +227,8 @@ input: -webkit-autofill:focus {
 }
 #header .header_menu .custom_navbar-brand {
     padding-left: 0;
+    padding-bottom: 50px;
+    margin-left: 410px;
 }
 #header .header_menu .navbar-default {
     background-color: rgba(255, 255, 255, 0);

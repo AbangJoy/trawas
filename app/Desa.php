@@ -8,4 +8,5 @@ class Desa extends Model
 {
     protected $table = 'desa';
     protected $guarded = [];
+    public $timestamps = false;
 }

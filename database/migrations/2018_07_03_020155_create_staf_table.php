@@ -15,7 +15,7 @@ class CreateStafTable extends Migration
     {
         Schema::create('staf', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('nama');
             $table->string('jabatan');
             $table->text('motto');

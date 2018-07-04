@@ -3,7 +3,8 @@
 <div class="content-wrapper">
     <div class="container-fluid">
         @include('layouts.flash')
-        <form action="{{ route('edit.menu') }}" method="POST">
+        <div class="box" style="border: 1px solid;border-radius:3%; width:700px; height:590px; margin-left:250px;">
+        <form action="{{ route('edit.menu') }}" method="POST" style="margin-left:250px; margin-top:10px;">
         {{ csrf_field() }}
 <input type="text" name="menu1" placeholder="menu1" value = "{{ $setting->menu ? $setting->menu['menu1'] : '' }}" required>
 <br>
@@ -36,6 +37,7 @@
 <br>
 <br>
 <button class="btn btn-success" type="submit" name="submit">Simpan</button>
+</div>
         </form>
     </div>
 @include('layouts.script')

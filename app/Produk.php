@@ -8,4 +8,5 @@ class Produk extends Model
 {
     protected $table = 'produk';
     protected $guarded = [];
+    public $timestamps = false;
 }

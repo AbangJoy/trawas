@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>GreenFair</title>
+        <title>Kecamatan Trawas</title>
 
         <!--    Google Fonts-->
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -39,11 +39,9 @@
     </head>
 
     <body data-spy="scroll" data-target="#header">
-
         <!--Start Hedaer Section-->
         <section id="header">
             <div class="header-area">
-                
                 <!--End of top header-->
                 <div class="header_menu text-center" data-spy="affix" data-offset-top="50" id="nav">
                     <div class="container">
@@ -56,23 +54,23 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand custom_navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+                                <a class="navbar-brand custom_navbar-brand" href="#"><img src="img/logoHeader.png" alt=""></a>
                             </div>
                             <!--End of navbar-header-->
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav navbar-right main_menu">
-                                    <li class="active"><a href="#header">{{ $setting->menu ? $setting->menu['menu1'] : '' }} <span class="sr-only">(current)</span></a></li>
-                                    <li><a href="#welcome">{{ $setting->menu ? $setting->menu['menu2'] : '' }}</a></li>
-                                    <li><a href="#counter">{{ $setting->menu ? $setting->menu['menu3'] : '' }}</a></li>
-                                    <li><a href="#testimonial">{{ $setting->menu ? $setting->menu['menu4'] : '' }}</a></li>
-                                    <li><a href="#portfolio">{{ $setting->menu ? $setting->menu['menu5'] : '' }}</a></li>
-                                    <li><a href="#event">{{ $setting->menu ? $setting->menu['menu6'] : '' }}</a></li>
-                                    <li><a href="#produk">{{ $setting->menu ? $setting->menu['menu7'] : '' }}</a></li>
-                                    <li><a href="#galeri">{{ $setting->menu ? $setting->menu['menu8'] : '' }}</a></li>
-                                    <li><a href="#berita">{{ $setting->menu ? $setting->menu['menu9'] : '' }}</a></li>
-                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu10'] : '' }}</a></li>
+                                    <li class="active"><a href="#header">{{ $setting->menu ? $setting->menu['menu1'] : 'menu1' }} <span class="sr-only">(current)</span></a></li>
+                                    <li><a href="#welcome">{{ $setting->menu ? $setting->menu['menu2'] : 'menu2' }}</a></li>
+                                    <li><a href="#counter">{{ $setting->menu ? $setting->menu['menu3'] : 'menu3' }}</a></li>
+                                    <li><a href="#testimonial">{{ $setting->menu ? $setting->menu['menu4'] : 'menu4' }}</a></li>
+                                    <li><a href="#portfolio">{{ $setting->menu ? $setting->menu['menu5'] : 'menu5' }}</a></li>
+                                    <li><a href="#event">{{ $setting->menu ? $setting->menu['menu6'] : 'menu6' }}</a></li>
+                                    <li><a href="#produk">{{ $setting->menu ? $setting->menu['menu7'] : 'menu7' }}</a></li>
+                                    <li><a href="#galeri">{{ $setting->menu ? $setting->menu['menu8'] : 'menu8' }}</a></li>
+                                    <li><a href="#berita">{{ $setting->menu ? $setting->menu['menu9'] : 'menu9' }}</a></li>
+                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu10'] : 'menu10' }}</a></li>
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
@@ -154,7 +152,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="wel_header">
-                            <h2>Profile</h2>
+                            <h2>{{ $setting->menu ? $setting->menu['menu2'] : 'menu2' }}</h2>
                             <p>Our Green Fire Organization is one of the non profit organization near you. Get our services like</p>
                         </div>
                     </div>
@@ -231,7 +229,7 @@
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="counter_header">
-                                <h2>Informasi Kecamatan</h2>
+                                <h2>{{ $setting->menu ? $setting->menu['menu3'] : 'menu3' }}</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
@@ -300,7 +298,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="testimonial_header text-center">
-                                <h2>Staf</h2>
+                                <h2>{{ $setting->menu ? $setting->menu['menu4'] : 'menu4' }}</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
@@ -401,7 +399,7 @@
          <section id="portfolio" class="text-center">
             <div class="col-md-12">
                 <div class="portfolio_title">
-                    <h2>Desa-Desa</h2>
+                    <h2>{{ $setting->menu ? $setting->menu['menu5'] : 'menu5' }}</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
                 </div>
             </div>
@@ -463,7 +461,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="event_header text-center">
-                            <h2>Wisata</h2>
+                            <h2>{{ $setting->menu ? $setting->menu['menu6'] : 'menu6' }}</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
@@ -582,7 +580,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="produk_header text-center">
-                            <h2>Produk Unggulan</h2>
+                            <h2>{{ $setting->menu ? $setting->menu['menu7'] : 'menu7' }}</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>
@@ -700,7 +698,7 @@
         <section id="galeri" class="text-center">
             <div class="col-md-12">
                 <div class="galeri_title">
-                    <h2>Foto-foto</h2>
+                    <h2>{{ $setting->menu ? $setting->menu['menu8'] : 'menu8' }}</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
                 </div>
             </div>
@@ -766,7 +764,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="latest_berita text-center">
-                            <h2>Berita</h2>
+                            <h2>{{ $setting->menu ? $setting->menu['menu9'] : 'menu9' }}</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo cum libero vitae quos eaque commodi.</p>
                         </div>
                     </div>
@@ -873,7 +871,7 @@
                 <div class="row">
                     <div class="colmd-12">
                         <div class="contact_area text-center">
-                            <h3>Info Kami</h3>
+                            <h3>{{ $setting->menu ? $setting->menu['menu10'] : 'menu10' }}</h3>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
                     </div>

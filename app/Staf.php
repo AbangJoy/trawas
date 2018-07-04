@@ -8,4 +8,5 @@ class Staf extends Model
 {
     protected $table = 'staf';
     protected $guarded = [];
+    public $timestamps = false;
 }

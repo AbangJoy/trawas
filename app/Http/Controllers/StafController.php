@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Staf;
+use Illuminate\Support\Facades\Storage;
 
 class StafController extends Controller
 {
@@ -19,7 +21,8 @@ class StafController extends Controller
 
     public function index()
     {
-        return view('staf.index');
+        $staf = Staf::all();
+        return view('staf.index', compact('staf'));
     }
 
     /**
@@ -40,7 +43,18 @@ class StafController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'foto' => 'image|mimes:jpeg'
+        ]);
+
+        $staf = Staf::create($request->except('foto'));
+        $staf_image = $staf->id . '.' . $request->file('foto')->getClientOriginalExtension();
+        $staf->foto = $staf_image;
+
+        $request->file('foto')->storeAs('public/img/staff/', $staf_image);
+        $staf->save();
+
+        return redirect()->route('staf.index')->with('success_msg', 'Staf Berhasil Disimpan');
     }
 
     /**
@@ -85,6 +99,12 @@ class StafController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $staf = Staf::find($id);
+
+        Storage::delete('public/img/staff/' . $staf->image);
+
+        $staf->delete();
+
+        return redirect()->route('staf.index')->with('success_msg', 'Staf Berhasil Dihapus');
     }
 }
