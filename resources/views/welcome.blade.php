@@ -70,9 +70,9 @@
                                     <li><a href="#event">{{ $setting->menu ? $setting->menu['menu5'] : '' }}</a></li>
                                     <li><a href="#testimonial">{{ $setting->menu ? $setting->menu['menu6'] : '' }}</a></li>
                                     <li><a href="#blog">{{ $setting->menu ? $setting->menu['menu7'] : '' }}</a></li>
-                                    <li><a href="#">{{ $setting->menu ? $setting->menu['menu8'] : '' }}</a></li>
-                                    <li><a href="#">{{ $setting->menu ? $setting->menu['menu9'] : '' }}</a></li>
-                                    <li><a href="#infokami">{{ $setting->menu ? $setting->menu['menu10'] : '' }}</a></li>
+                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu8'] : '' }}</a></li>
+                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu9'] : '' }}</a></li>
+                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu10'] : '' }}</a></li>
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
@@ -864,7 +864,7 @@
         <!-- end of blog-->
 
         <!--Start of contact-->
-        <section id="infokami">
+        <section id="contact">
             <div class="container">
                 <div class="row">
                     <div class="colmd-12">

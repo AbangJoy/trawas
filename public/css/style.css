@@ -880,7 +880,7 @@ div#market-place {
 
 /*Contact*/
 
-#infokami {
+#contact {
     min-height: 650px;
     background: #eeeeee;
     padding: 80px 0;
@@ -1110,12 +1110,12 @@ li.fw-flash-message {
 /*.contact_us_padding {
     padding: 80px 0px;
 }*/
-#infokami .wel_header {
+#contact-us .wel_header {
     padding-top: 0px;
     padding-bottom: 0;
 }
 
-#infokami h3 {
+#contact-us h3 {
     font-size: 36px;
     padding-bottom: 20px;
     font-weight: 700;
@@ -1125,7 +1125,7 @@ li.fw-flash-message {
 
 }
 
-#infokami .wel_header h5 {
+#contact-us .wel_header h5 {
     text-align: left;
     font-size: 22px;
     font-weight: 400;
@@ -1135,17 +1135,17 @@ li.fw-flash-message {
     color: #222222;
     padding-top: 0px
 }
-#infokami .office_location i {
+#contact-us .office_location i {
     padding-bottom: 15px;
 }
-#infokami .office_location i span {
+#contact-us .office_location i span {
     padding-left: 15px;
     color: #696969;
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
 }
 
-#infokami .form-group {
+#contact-us .form-group {
     margin-bottom: 0;
 }
 .wel_header.contact_us_h5 {
