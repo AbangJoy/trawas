@@ -65,13 +65,13 @@
                                 <ul class="nav navbar-nav navbar-right main_menu">
                                     <li class="active"><a href="#header">{{ $setting->menu ? $setting->menu['menu1'] : '' }} <span class="sr-only">(current)</span></a></li>
                                     <li><a href="#welcome">{{ $setting->menu ? $setting->menu['menu2'] : '' }}</a></li>
-                                    <li><a href="#portfolio">{{ $setting->menu ? $setting->menu['menu3'] : '' }}</a></li>
-                                    <li><a href="#counter">{{ $setting->menu ? $setting->menu['menu4'] : '' }}</a></li>
-                                    <li><a href="#event">{{ $setting->menu ? $setting->menu['menu5'] : '' }}</a></li>
-                                    <li><a href="#testimonial">{{ $setting->menu ? $setting->menu['menu6'] : '' }}</a></li>
-                                    <li><a href="#blog">{{ $setting->menu ? $setting->menu['menu7'] : '' }}</a></li>
-                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu8'] : '' }}</a></li>
-                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu9'] : '' }}</a></li>
+                                    <li><a href="#counter">{{ $setting->menu ? $setting->menu['menu3'] : '' }}</a></li>
+                                    <li><a href="#testimonial">{{ $setting->menu ? $setting->menu['menu4'] : '' }}</a></li>
+                                    <li><a href="#portfolio">{{ $setting->menu ? $setting->menu['menu5'] : '' }}</a></li>
+                                    <li><a href="#event">{{ $setting->menu ? $setting->menu['menu6'] : '' }}</a></li>
+                                    <li><a href="#produk">{{ $setting->menu ? $setting->menu['menu7'] : '' }}</a></li>
+                                    <li><a href="#galeri">{{ $setting->menu ? $setting->menu['menu8'] : '' }}</a></li>
+                                    <li><a href="#berita">{{ $setting->menu ? $setting->menu['menu9'] : '' }}</a></li>
                                     <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu10'] : '' }}</a></li>
                                 </ul>
                             </div>
@@ -106,8 +106,8 @@
                             <img src="img/img1.jpg" alt="...">
                             <div class="carousel-caption">
                                 <div class="slider_text">
-                                    <h3>Protect</h3>
-                                    <h2>nature the environment</h2>
+                                    <h3>Welcome</h3>
+                                    <h2>Kecamatan Trawas</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     <a href="" class="custom_btn">Read  More</a>
                                 </div>
@@ -148,13 +148,90 @@
             </div>
         </section>
         <!--end of slider section-->
+        <!--Start of welcome section-->
+        <section id="welcome">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="wel_header">
+                            <h2>Profile</h2>
+                            <p>Our Green Fire Organization is one of the non profit organization near you. Get our services like</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End of row-->
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="item">
+                            <div class="single_item">
+                                <div class="item_list">
+                                    <div class="welcome_icon">
+                                        <i class="fa fa-leaf"></i>
+                                    </div>
+                                    <h4>eco system</h4>
+                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of col-md-3-->
+                    <div class="col-md-3">
+                        <div class="item">
+                            <div class="single_item">
+                                <div class="item_list">
+                                    <div class="welcome_icon">
+                                        <i class="fa fa-refresh"></i>
+                                    </div>
+                                    <h4>recycling</h4>
+                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of col-md-3-->
+                    <div class="col-md-3">
+                        <div class="item">
+                            <div class="single_item">
+                                <div class="item_list">
+                                    <div class="welcome_icon">
+                                        <i class="fa fa-tint"></i>
+                                    </div>
+                                    <h4>water refine</h4>
+                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of col-md-3-->
+                    <div class="col-md-3">
+                        <div class="item">
+                            <div class="single_item">
+                                <div class="item_list">
+                                    <div class="welcome_icon">
+                                        <i class="fa fa-cog"></i>
+                                    </div>
+                                    <h4>solar system</h4>
+                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of col-md-3-->
+                </div>
+                <!--End of row-->
+            </div>
+            <!--End of container-->
+        </section>
+        <!--end of welcome section-->
+       
+
         <section id="counter">
             <div class="counter_img_overlay">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="counter_header">
-                                <h2>Informasi</h2>
+                                <h2>Informasi Kecamatan</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                             </div>
                         </div>
@@ -214,6 +291,9 @@
         </section>
         <!--end of counter-->
 
+         
+
+        
         <section id="testimonial">
             <div class="testimonial_overlay">
                 <div class="container">
@@ -317,81 +397,6 @@
 
 
 
-        <!--Start of welcome section-->
-        <section id="welcome">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="wel_header">
-                            <h2>Profile</h2>
-                            <p>Our Green Fire Organization is one of the non profit organization near you. Get our services like</p>
-                        </div>
-                    </div>
-                </div>
-                <!--End of row-->
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="item">
-                            <div class="single_item">
-                                <div class="item_list">
-                                    <div class="welcome_icon">
-                                        <i class="fa fa-leaf"></i>
-                                    </div>
-                                    <h4>eco system</h4>
-                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-3-->
-                    <div class="col-md-3">
-                        <div class="item">
-                            <div class="single_item">
-                                <div class="item_list">
-                                    <div class="welcome_icon">
-                                        <i class="fa fa-refresh"></i>
-                                    </div>
-                                    <h4>recycling</h4>
-                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-3-->
-                    <div class="col-md-3">
-                        <div class="item">
-                            <div class="single_item">
-                                <div class="item_list">
-                                    <div class="welcome_icon">
-                                        <i class="fa fa-tint"></i>
-                                    </div>
-                                    <h4>water refine</h4>
-                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-3-->
-                    <div class="col-md-3">
-                        <div class="item">
-                            <div class="single_item">
-                                <div class="item_list">
-                                    <div class="welcome_icon">
-                                        <i class="fa fa-cog"></i>
-                                    </div>
-                                    <h4>solar system</h4>
-                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-3-->
-                </div>
-                <!--End of row-->
-            </div>
-            <!--End of container-->
-        </section>
-        <!--end of welcome section-->
          <!--Start of portfolio-->
          <section id="portfolio" class="text-center">
             <div class="col-md-12">
@@ -452,7 +457,6 @@
             <!--End of colum-->
         </section>
         <!--end of portfolio-->
-
         <!--start of event-->
         <section id="event">
             <div class="container">
@@ -573,11 +577,11 @@
             <!--End of container-->
         </section>
         <!--end of event-->
-        <section id="event">
+        <section id="produk">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="event_header text-center">
+                        <div class="produk_header text-center">
                             <h2>Produk Unggulan</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                         </div>
@@ -588,19 +592,19 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-6 zero_mp">
-                                <div class="event_item">
-                                    <div class="event_img">
+                                <div class="produk_item">
+                                    <div class="produk_img">
                                         <img src="img/tree_cut_1.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 zero_mp">
-                                <div class="event_item">
-                                    <div class="event_text text-center">
+                                <div class="produk_item">
+                                    <div class="produk_text text-center">
                                         <a href=""><h4>One Tree Thousand Hope</h4></a>
                                         <h6>15-16 May in Dhaka</h6>
                                         <p>Lorem ipsum dolor sit amet, consectetur adip scing elit. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        <a href="" class="event_btn">read more</a>
+                                        <a href="" class="produk_btn">read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -608,18 +612,18 @@
                         <!--End of row-->
                         <div class="row">
                             <div class="col-md-6 zero_mp">
-                                <div class="event_item">
-                                    <div class="event_text text-center">
+                                <div class="produk_item">
+                                    <div class="produk_text text-center">
                                         <a href=""><h4>One Tree Thousand Hope</h4></a>
                                         <h6>15-16 May in Dhaka</h6>
                                         <p>Lorem ipsum dolor sit amet, consectetur adip scing elit. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        <a href="" class="event_btn">read more</a>
+                                        <a href="" class="produk_btn">read more</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 zero_mp">
-                                <div class="event_item">
-                                    <div class="event_img">
+                                <div class="produk_item">
+                                    <div class="produk_img">
                                         <img src="img/tree_cut_2.jpg" alt="">
                                     </div>
                                 </div>
@@ -629,56 +633,56 @@
                     </div>
                     <!--End of col-md-8-->
                     <div class="col-md-4">
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
+                        <div class="produk_news">
+                            <div class="produk_single_item fix">
+                                <div class="produk_news_img floatleft">
                                     <img src="img/tree_cut_3.jpg" alt="">
                                 </div>
-                                <div class="event_news_text">
+                                <div class="produk_news_text">
                                     <a href="#"><h4>Let’s plant 200 tree each...</h4></a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
+                        <div class="produk_news">
+                            <div class="produk_single_item fix">
+                                <div class="produk_news_img floatleft">
                                     <img src="img/tree_cut_4.jpg" alt="">
                                 </div>
-                                <div class="event_news_text">
+                                <div class="produk_news_text">
                                     <a href="#"><h4>Keep your house envirome..</h4></a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
+                        <div class="produk_news">
+                            <div class="produk_single_item fix">
+                                <div class="produk_news_img floatleft">
                                     <img src="img/tree_cut_3.jpg" alt="">
                                 </div>
-                                <div class="event_news_text">
+                                <div class="produk_news_text">
                                     <a href="#"><h4>Urgent Clothe Needed Needed</h4></a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
+                        <div class="produk_news">
+                            <div class="produk_single_item fix">
+                                <div class="produk_news_img floatleft">
                                     <img src="img/tree_cut_4.jpg" alt="">
                                 </div>
-                                <div class="event_news_text">
+                                <div class="produk_news_text">
                                     <a href="#"><h4>One Tree Thousand Hope</h4></a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
+                        <div class="produk_news">
+                            <div class="produk_single_item fix">
+                                <div class="produk_news_img floatleft">
                                     <img src="img/tree_cut_3.jpg" alt="">
                                 </div>
-                                <div class="event_news_text">
+                                <div class="produk_news_text">
                                     <a href="#"><h4>One Tree Thousand Hope</h4></a>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
                                 </div>
@@ -693,9 +697,9 @@
         </section>
         <!--end of event-->
         
-        <section id="portfolio" class="text-center">
+        <section id="galeri" class="text-center">
             <div class="col-md-12">
-                <div class="portfolio_title">
+                <div class="galeri_title">
                     <h2>Foto-foto</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
                 </div>
@@ -757,11 +761,11 @@
         
 
         <!--Start of blog-->
-        <section id="blog">
+        <section id="berita">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="latest_blog text-center">
+                        <div class="latest_berita text-center">
                             <h2>Berita</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo cum libero vitae quos eaque commodi.</p>
                         </div>
@@ -770,12 +774,12 @@
                 <!--End of row-->
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="blog_news">
-                            <div class="single_blog_item">
-                                <div class="blog_img">
+                        <div class="berita_news">
+                            <div class="single_berita_item">
+                                <div class="berita_img">
                                     <img src="img/climate_effect.jpg" alt="">
                                 </div>
-                                <div class="blog_content">
+                                <div class="berita_content">
                                     <a href=""><h3>Climate change is affecting bird migration</h3></a>
                                     <div class="expert">
                                         <div class="left-side text-left">
@@ -791,20 +795,20 @@
                                         </div>
                                     </div>
 
-                                    <p class="blog_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
-                                    <a href="" class="blog_link">read more</a>
+                                    <p class="berita_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
+                                    <a href="" class="berita_link">read more</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--End of col-md-4-->
                     <div class="col-md-4">
-                        <div class="blog_news">
-                            <div class="single_blog_item">
-                                <div class="blog_img">
+                        <div class="berita_news">
+                            <div class="single_berita_item">
+                                <div class="berita_img">
                                     <img src="img/air_pollutuon.jpg" alt="">
                                 </div>
-                                <div class="blog_content">
+                                <div class="berita_content">
                                     <a href=""><h3>How to avoid indoor air pollution?</h3></a>
                                     <div class="expert">
                                         <div class="left-side text-left">
@@ -820,20 +824,20 @@
                                         </div>
                                     </div>
 
-                                    <p class="blog_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
-                                    <a href="" class="blog_link">read more</a>
+                                    <p class="berita_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
+                                    <a href="" class="berita_link">read more</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--End of col-md-4-->
                     <div class="col-md-4">
-                        <div class="blog_news">
-                            <div class="single_blog_item">
-                                <div class="blog_img">
+                        <div class="berita_news">
+                            <div class="single_berita_item">
+                                <div class="berita_img">
                                     <img src="img/threat_bear.jpg" alt="">
                                 </div>
-                                <div class="blog_content">
+                                <div class="berita_content">
                                     <a href=""><h3>Threat to Yellowstone’s grizzly bears.</h3></a>
                                     <div class="expert">
                                         <div class="left-side text-left">
@@ -849,7 +853,7 @@
                                         </div>
                                     </div>
 
-                                    <p class="blog_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
+                                    <p class="berita_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
                                     <a href="" class="blog_link">read more</a>
                                 </div>
                             </div>
