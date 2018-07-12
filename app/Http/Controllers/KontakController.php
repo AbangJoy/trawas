@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Kontak;
+use Illuminate\Support\Facades\Storage;
+
 class KontakController extends Controller
 {
     /**
@@ -40,7 +43,7 @@ class KontakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('kontak.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**

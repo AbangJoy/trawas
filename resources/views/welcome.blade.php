@@ -153,7 +153,7 @@
                     <div class="col-md-12">
                         <div class="wel_header">
                             <h2>{{ $setting->menu ? $setting->menu['menu2'] : 'menu2' }}</h2>
-                            <p>Our Green Fire Organization is one of the non profit organization near you. Get our services like</p>
+                            <p>{{ $setting->menu2 ? $setting->menu2['deskripsi'] : 'deskripsi' }}</p>
                         </div>
                     </div>
                 </div>
@@ -230,7 +230,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="counter_header">
                                 <h2>{{ $setting->menu ? $setting->menu['menu3'] : 'menu3' }}</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>{{ $setting->menu3 ? $setting->menu3['deskripsi'] : 'deskripsi' }}</p>
                             </div>
                         </div>
                         <!--End of col-md-12-->
@@ -299,7 +299,7 @@
                         <div class="col-md-12">
                             <div class="testimonial_header text-center">
                                 <h2>{{ $setting->menu ? $setting->menu['menu4'] : 'menu4' }}</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p>{{ $setting->menu4 ? $setting->menu4['deskripsi'] : 'deskripsi' }}</p>
                             </div>
                         </div>
                     </div>
@@ -312,71 +312,31 @@
                                         <!-- Carousel indicators -->
                                         <ol class="carousel-indicators">
                                             <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
-                                            <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+                                      
                                         </ol>
                                         <!-- Carousel items -->
                                         <div class="carousel-inner">
                                             <div class="active item">
                                                 <div class="row">
+                                                    @foreach($staf as $data)
                                                     <div class="col-md-6">
                                                         <div class="profile-circle">
-                                                            <img src="img/tree_cut_3.jpg" alt="">
+                                                            <img src="{{ asset('storage/img/staff/' . $data->foto) }}" alt="">
                                                         </div>
                                                         <div class="testimonial_content">
                                                             <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
+                                                            <p>{{ $data->motto }}</p>
                                                         </div>
                                                         <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
+                                                            <h5>{{ $data->nama }}</h5>
+                                                            <p>{{ $data->jabatan }}</p>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="profile-circle">
-                                                            <img src="img/tree_cut_3.jpg" alt="">
-                                                        </div>
-                                                        <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                                                        </div>
-                                                        <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
-                                                        </div>
-                                                    </div>
+                                                    @endforeach
                                                 </div>
                                             </div>
                                             <!--End of item with active-->
-                                            <div class="item">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="profile-circle">
-                                                            <img src="img/tree_cut_3.jpg" alt="">
-                                                        </div>
-                                                        <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                                                        </div>
-                                                        <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="profile-circle">
-                                                            <img src="img/tree_cut_3.jpg" alt="">
-                                                        </div>
-                                                        <div class="testimonial_content">
-                                                            <i class="fa fa-quote-left"></i>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                                                        </div>
-                                                        <div class="testimonial_author">
-                                                            <h5>Sadequr Rahman Sojib</h5>
-                                                            <p>CEO, Fourder</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                           
                                             <!--ENd of item-->
                                         </div>
                                     </div>
@@ -400,7 +360,7 @@
             <div class="col-md-12">
                 <div class="portfolio_title">
                     <h2>{{ $setting->menu ? $setting->menu['menu5'] : 'menu5' }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                    <p>{{ $setting->menu5 ? $setting->menu5['deskripsi'] : 'deskripsi' }}</p>
                 </div>
             </div>
             <!--End of col-md-2-->
@@ -462,7 +422,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="event_header text-center">
                             <h2>{{ $setting->menu ? $setting->menu['menu6'] : 'menu6' }}</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>{{ $setting->menu6 ? $setting->menu6['deskripsi'] : 'deskripsi' }}</p>
                         </div>
                     </div>
                 </div>
@@ -470,45 +430,27 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
+                            @foreach($wisata as $data)
                             <div class="col-md-6 zero_mp">
                                 <div class="event_item">
                                     <div class="event_img">
-                                        <img src="img/tree_cut_1.jpg" alt="">
+                                        <img src="{{ asset('storage/img/wisata/' . $data->foto) }}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 zero_mp">
                                 <div class="event_item">
                                     <div class="event_text text-center">
-                                        <a href=""><h4>One Tree Thousand Hope</h4></a>
-                                        <h6>15-16 May in Dhaka</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adip scing elit. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <a href=""><h4>{{ $data->nama }}</h4></a>
+                                        <p>{{ $data->deskripsi }}</p>
                                         <a href="" class="event_btn">read more</a>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                         <!--End of row-->
-                        <div class="row">
-                            <div class="col-md-6 zero_mp">
-                                <div class="event_item">
-                                    <div class="event_text text-center">
-                                        <a href=""><h4>One Tree Thousand Hope</h4></a>
-                                        <h6>15-16 May in Dhaka</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adip scing elit. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        <a href="" class="event_btn">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 zero_mp">
-                                <div class="event_item">
-                                    <div class="event_img">
-                                        <img src="img/tree_cut_2.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!--End of row-->
+                       
                     </div>
                     <!--End of col-md-8-->
                     <div class="col-md-4">
@@ -581,7 +523,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="produk_header text-center">
                             <h2>{{ $setting->menu ? $setting->menu['menu7'] : 'menu7' }}</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>{{ $setting->menu6 ? $setting->menu6['deskripsi'] : 'deskripsi' }}</p>
                         </div>
                     </div>
                 </div>
@@ -589,46 +531,27 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="row">
+                                @foreach($produk as $data)
                             <div class="col-md-6 zero_mp">
                                 <div class="produk_item">
                                     <div class="produk_img">
-                                        <img src="img/tree_cut_1.jpg" alt="">
+                                        <img src="{{ asset('storage/img/produk/' . $data->foto) }}" alt="">
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 zero_mp">
                                 <div class="produk_item">
                                     <div class="produk_text text-center">
-                                        <a href=""><h4>One Tree Thousand Hope</h4></a>
-                                        <h6>15-16 May in Dhaka</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adip scing elit. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                        <a href=""><h4>{{ $data->nama }}</h4></a>
+                                        <p>{{ $data->deskripsi }}</p>
                                         <a href="" class="produk_btn">read more</a>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
                         <!--End of row-->
-                        <div class="row">
-                            <div class="col-md-6 zero_mp">
-                                <div class="produk_item">
-                                    <div class="produk_text text-center">
-                                        <a href=""><h4>One Tree Thousand Hope</h4></a>
-                                        <h6>15-16 May in Dhaka</h6>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adip scing elit. Lorem ipsum dolor sit amet,consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        <a href="" class="produk_btn">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 zero_mp">
-                                <div class="produk_item">
-                                    <div class="produk_img">
-                                        <img src="img/tree_cut_2.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                        <!--End of row-->
-                    </div>
                     <!--End of col-md-8-->
                     <div class="col-md-4">
                         <div class="produk_news">
@@ -699,7 +622,7 @@
             <div class="col-md-12">
                 <div class="galeri_title">
                     <h2>{{ $setting->menu ? $setting->menu['menu8'] : 'menu8' }}</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet consectetur adipiscing elit.</p>
+                    <p>{{ $setting->menu8 ? $setting->menu8['deskripsi'] : 'deskripsi' }}</p>
                 </div>
             </div>
             <!--End of col-md-2-->
@@ -765,20 +688,21 @@
                     <div class="col-md-12">
                         <div class="latest_berita text-center">
                             <h2>{{ $setting->menu ? $setting->menu['menu9'] : 'menu9' }}</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo cum libero vitae quos eaque commodi.</p>
+                            <p>{{ $setting->menu9 ? $setting->menu9['deskripsi'] : 'deskripsi' }}</p>
                         </div>
                     </div>
                 </div>
                 <!--End of row-->
                 <div class="row">
                     <div class="col-md-4">
+                            @foreach($berita as $data)
                         <div class="berita_news">
                             <div class="single_berita_item">
                                 <div class="berita_img">
-                                    <img src="img/climate_effect.jpg" alt="">
+                                    <img src="{{ asset('storage/img/berita/' . $data->foto) }}" alt="">
                                 </div>
                                 <div class="berita_content">
-                                    <a href=""><h3>Climate change is affecting bird migration</h3></a>
+                                    <a href=""><h3>{{ $data->judul }}</h3></a>
                                     <div class="expert">
                                         <div class="left-side text-left">
                                             <p class="left_side">
@@ -786,76 +710,15 @@
                                                 <span class="time">Aug 19, 2016</span>
                                                 <a href=""><span class="admin"><i class="fa fa-user"></i> Admin</span></a>
                                             </p>
-                                            <p class="right_side text-right">
-                                                <a href=""><span class="right_msg text-right"><i class="fa fa-comments-o"></i></span>
-                                                    <span class="count">0</span></a>
-                                            </p>
                                         </div>
                                     </div>
 
-                                    <p class="berita_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
+                                    <p class="berita_news_content">{{ $data->deskripsi }}</p>
                                     <a href="" class="berita_link">read more</a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!--End of col-md-4-->
-                    <div class="col-md-4">
-                        <div class="berita_news">
-                            <div class="single_berita_item">
-                                <div class="berita_img">
-                                    <img src="img/air_pollutuon.jpg" alt="">
-                                </div>
-                                <div class="berita_content">
-                                    <a href=""><h3>How to avoid indoor air pollution?</h3></a>
-                                    <div class="expert">
-                                        <div class="left-side text-left">
-                                            <p class="left_side">
-                                                <span class="clock"><i class="fa fa-clock-o"></i></span>
-                                                <span class="time">Aug 19, 2016</span>
-                                                <a href=""><span class="admin"><i class="fa fa-user"></i> Admin</span></a>
-                                            </p>
-                                            <p class="right_side text-right">
-                                                <a href=""><span class="right_msg text-right"><i class="fa fa-comments-o"></i></span>
-                                                    <span class="count">0</span></a>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <p class="berita_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
-                                    <a href="" class="berita_link">read more</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-4-->
-                    <div class="col-md-4">
-                        <div class="berita_news">
-                            <div class="single_berita_item">
-                                <div class="berita_img">
-                                    <img src="img/threat_bear.jpg" alt="">
-                                </div>
-                                <div class="berita_content">
-                                    <a href=""><h3>Threat to Yellowstone’s grizzly bears.</h3></a>
-                                    <div class="expert">
-                                        <div class="left-side text-left">
-                                            <p class="left_side">
-                                                <span class="clock"><i class="fa fa-clock-o"></i></span>
-                                                <span class="time">Aug 19, 2016</span>
-                                                <a href=""><span class="admin"><i class="fa fa-user"></i> Admin</span></a>
-                                            </p>
-                                            <p class="right_side text-right">
-                                                <a href=""><span class="right_msg text-right"><i class="fa fa-comments-o"></i></span>
-                                                    <span class="count">0</span></a>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <p class="berita_news_content">Lorem ipsum dolor sit amet, consectetur adipscing elit. Lorem ipsum dolor sit amet, conse ctetur adipiscing elit. consectetur Lorem ipsum dolor sitamet, conse ctetur adipiscing elit. </p>
-                                    <a href="" class="blog_link">read more</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!--End of col-md-4-->
                 </div>
@@ -872,7 +735,7 @@
                     <div class="colmd-12">
                         <div class="contact_area text-center">
                             <h3>{{ $setting->menu ? $setting->menu['menu10'] : 'menu10' }}</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            <p>{{ $setting->menu10 ? $setting->menu10['deskripsi'] : 'deskripsi' }}</p>
                         </div>
                     </div>
                 </div>

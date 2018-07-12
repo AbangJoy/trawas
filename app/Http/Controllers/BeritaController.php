@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Berita;
+use Illuminate\Support\Facades\Storage;
+
 class BeritaController extends Controller
 {
     /**
@@ -40,7 +43,18 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'berita' => 'image|mimes:jpeg'
+        ]);
+
+        $berita = Berita::create($request->except('foto'));
+        $berita_image = $berita->id . '.' . $request->file('foto')->getClientOriginalExtension();
+        $berita->foto = $berita_image;
+
+        $request->file('foto')->storeAs('public/img/berita/', $berita_image);
+        $berita->save();
+
+        return redirect()->route('berita.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**

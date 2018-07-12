@@ -76,7 +76,8 @@ class StafController extends Controller
      */
     public function edit($id)
     {
-        return view('staf.edit');
+        $staf = Staf::find($id);
+        return view('staf.edit', compact('staf', 'id'));
     }
 
     /**
@@ -88,7 +89,20 @@ class StafController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $staf = Staf::find($id);
+        $staf->update($request->except('foto'));
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/img/staff/' . $staf->foto);
+
+            $staf_image = $staf->id . '.' . $request->file('foto')->getClientOriginalExtension();
+            $staf->foto = $staf_image;
+
+            $request->file('foto')->storeAs('public/img/staff/', $staf_image);
+            $staf->save();
+        }
+
+        return redirect()->route('staf.index')->with('success_msg', 'Data Staf Berhasil Diubah');
     }
 
     /**
@@ -101,7 +115,7 @@ class StafController extends Controller
     {
         $staf = Staf::find($id);
 
-        Storage::delete('public/img/staff/' . $staf->image);
+        Storage::delete('public/img/staff/' . $staf->foto);
 
         $staf->delete();
 

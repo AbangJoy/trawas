@@ -16,7 +16,17 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->text('menu')->nullable();
+            $table->text('menu')->nullable(); //nama menu
+            $table->text('menu1')->nullable();
+            $table->text('menu2')->nullable();
+            $table->text('menu3')->nullable();
+            $table->text('menu4')->nullable();
+            $table->text('menu5')->nullable();
+            $table->text('menu6')->nullable();
+            $table->text('menu7')->nullable();
+            $table->text('menu8')->nullable();
+            $table->text('menu9')->nullable();
+            $table->text('menu10')->nullable();
         });
     }
 

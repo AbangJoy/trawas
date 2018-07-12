@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Produk;
+use Illuminate\Support\Facades\Storage;
+
 class ProdukController extends Controller
 {
     /**
@@ -40,7 +43,18 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'produk' => 'image|mimes:jpeg'
+        ]);
+
+        $produk = Produk::create($request->except('foto'));
+        $produk_image = $produk->id . '.' . $request->file('foto')->getClientOriginalExtension();
+        $produk->foto = $produk_image;
+
+        $request->file('foto')->storeAs('public/img/produk/', $produk_image);
+        $produk->save();
+
+        return redirect()->route('produk.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**

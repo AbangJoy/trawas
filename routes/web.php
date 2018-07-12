@@ -1,5 +1,10 @@
 <?php
 
+use App\Staf;
+use App\Wisata;
+use App\Produk;
+use App\Berita;
+use App\Kontak;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +17,11 @@
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    $staf = Staf::all();
+    $wisata = Wisata::all();
+    $produk = Produk::all();
+    $berita = Berita::all();
+    return view('welcome', compact('staf', 'wisata', 'produk', 'berita'));
 })->name('index');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -27,7 +36,17 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('menu', 'HomeController@menu')->name('menu');
-Route::post('menu/edit', 'HomeController@editMenu')->name('edit.menu');
+Route::post('menu/edit', 'SettingController@editMenu')->name('menu.edit');
+Route::post('menu5/edit', 'SettingController@editMenu5')->name('menu5.edit');
+Route::post('menu4/edit', 'SettingController@editMenu4')->name('menu4.edit');
+Route::post('menu2/edit', 'SettingController@editMenu2')->name('menu2.edit');
+Route::post('menu3/edit', 'SettingController@editMenu3')->name('menu3.edit');
+Route::post('menu6/edit', 'SettingController@editMenu6')->name('menu6.edit');
+Route::post('menu7/edit', 'SettingController@editMenu7')->name('menu7.edit');
+Route::post('menu8/edit', 'SettingController@editMenu8')->name('menu8.edit');
+Route::post('menu9/edit', 'SettingController@editMenu9')->name('menu9.edit');
+Route::post('menu10/edit', 'SettingController@editMenu10')->name('menu10.edit');
+
 
 Route::resource('beranda', 'BerandaController');
 Route::resource('staf', 'StafController');

@@ -15,7 +15,7 @@ class CreateWisataTable extends Migration
     {
         Schema::create('wisata', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('nama');
             $table->text('deskripsi');
         });
