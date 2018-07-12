@@ -16,9 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $setting = Setting::first();
-        View::share('setting', $setting);
-
+        if (!app()->runningInConsole()) {
+            $setting = Setting::first();
+            View::share('setting', $setting);
+        }
         Schema::defaultStringLength(191);
     }
 
