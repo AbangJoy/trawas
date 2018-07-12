@@ -18,7 +18,6 @@ class CreateProdukTable extends Migration
             $table->string('foto')->nullable();
             $table->string('nama');
             $table->text('deskripsi');
-            $table->timestamps();
         });
     }
 

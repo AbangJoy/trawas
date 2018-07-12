@@ -22,7 +22,8 @@ class SettingsTableSeeder extends Seeder
             'menu7' => 'menu 7',
             'menu8' => 'menu 8',
             'menu9' => 'menu 9',
-            'menu10' => 'menu 10'
+            'menu10' => 'menu 10',
+            'menu11' => 'menu 11'
         ];
 
         Setting::create([

@@ -72,6 +72,12 @@
               <span class="nav-link-text">{{ $setting->menu ? $setting->menu['menu10'] : 'Menu 10' }}</span>
             </a>
         </li>
+        <li class="nav-item {{ Request::is('artikel') ? 'active' : '' }}" data-toggle="tooltip" data-placement="right" title="artikel">
+            <a class="nav-link" href="{{ url('artikel') }}">
+              <i class="fa fa-fw fa-pencil"></i>
+              <span class="nav-link-text">{{ $setting->menu ? $setting->menu['menu11'] : 'Menu 11' }}</span>
+            </a>
+        </li>
       </ul>
       
       <ul class="navbar-nav ml-auto">

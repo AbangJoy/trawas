@@ -36,6 +36,9 @@
 <input type="text" name="menu10" placeholder="menu10" value = "{{ $setting->menu ? $setting->menu['menu10'] : 'menu10' }}" required>
 <br>
 <br>
+<input type="text" name="menu11" placeholder="menu11" value = "{{ $setting->menu ? $setting->menu['menu11'] : 'menu11' }}" required>
+<br>
+<br>
 <button class="btn btn-success" type="submit" name="submit">Simpan</button>
 </div>
         </form>
