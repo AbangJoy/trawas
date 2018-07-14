@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Profil extends Model
+class Beranda extends Model
 {
-    protected $table = 'profil';
+    protected $table = 'beranda';
     protected $guarded = [];
     public $timestamps = false;
 }

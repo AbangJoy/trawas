@@ -5,6 +5,9 @@ use App\Wisata;
 use App\Produk;
 use App\Berita;
 use App\Kontak;
+use App\Beranda;
+use App\Profil;
+use App\Informasi;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +24,10 @@ Route::get('/', function () {
     $wisata = Wisata::all();
     $produk = Produk::all();
     $berita = Berita::all();
-    return view('welcome', compact('staf', 'wisata', 'produk', 'berita'));
+    $beranda = Beranda::all();
+    $profil = Profil::all();
+    $informasi = Informasi::all();
+    return view('welcome', compact('staf', 'wisata', 'produk', 'berita', 'beranda', 'profil', 'informasi'));
 })->name('index');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -37,6 +43,7 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::get('home', 'HomeController@index')->name('home');
 Route::get('menu', 'HomeController@menu')->name('menu');
 Route::post('menu/edit', 'SettingController@editMenu')->name('menu.edit');
+Route::post('menu1/edit', 'SettingController@editMenu1')->name('menu1.edit');
 Route::post('menu5/edit', 'SettingController@editMenu5')->name('menu5.edit');
 Route::post('menu4/edit', 'SettingController@editMenu4')->name('menu4.edit');
 Route::post('menu2/edit', 'SettingController@editMenu2')->name('menu2.edit');

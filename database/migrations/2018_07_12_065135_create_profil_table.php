@@ -15,7 +15,7 @@ class CreateProfilTable extends Migration
     {
         Schema::create('profil', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('ikon');
+            $table->string('ikon')->nullable();
             $table->string('judul');
             $table->text('deskripsi');
         });

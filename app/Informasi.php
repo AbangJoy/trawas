@@ -8,4 +8,5 @@ class Informasi extends Model
 {
     protected $table = 'informasi';
     protected $guarded = [];
+    public $timestamps = false;
 }

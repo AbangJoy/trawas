@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Informasi;
+use Illuminate\Support\Facades\Storage;
+
 class InformasiController extends Controller
 {
     /**
@@ -19,7 +22,8 @@ class InformasiController extends Controller
 
     public function index()
     {
-        return view('informasi.index');
+        $informasi = Informasi::all();
+        return view('informasi.index', compact('informasi'));
     }
 
     /**
@@ -40,7 +44,11 @@ class InformasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $informasi = Informasi::create($request->except('foto'));
+
+
+        $informasi->save();
+        return redirect()->route('informasi.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**

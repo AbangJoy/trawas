@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Beranda;
+use Illuminate\Support\Facades\Storage;
+
 class BerandaController extends Controller
 {
     /**
@@ -41,6 +44,17 @@ class BerandaController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'beranda' => 'image|mimes:jpeg'
+        ]);
+
+        $beranda = Beranda::create($request->except('foto'));
+        $beranda_image = $beranda->id . '.' . $request->file('foto')->getClientOriginalExtension();
+        $beranda->foto = $beranda_image;
+
+        $request->file('foto')->storeAs('public/img/beranda/', $beranda_image);
+        $beranda->save();
+        return redirect()->route('beranda.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**

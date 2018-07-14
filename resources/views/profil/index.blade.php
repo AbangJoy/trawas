@@ -13,8 +13,9 @@
                 <button type="submit" class="btn btn-success">Simpan</button>
                 <br>
                 <br>
-            
-              </form>
+                
+        </form>
+        <a href="{{ route('profil.create') }}" class="btn btn-warning">Ganti Text</a>
     </div>
 </div>
 

@@ -16,6 +16,14 @@ class SettingController extends Controller
         return redirect()->route('menu')->with('success_msg', 'Berhasil disimpan');
     }
 
+    public function editMenu1(Request $request)
+    {
+        Setting::first()->update([
+            'menu1' => $request->except('_token')
+        ]);
+        return redirect()->route('beranda.index')->with('success_msg', 'Berhasil disimpan');
+    }
+
     public function editMenu5(Request $request)
     {
         Setting::first()->update([

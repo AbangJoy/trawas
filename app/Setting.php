@@ -18,6 +18,7 @@ class Setting extends Model
         'menu8' => 'array',
         'menu9' => 'array',
         'menu10' => 'array',
+        'menu11' => 'array',
     ];
     protected $guarded = [];
     public $timestamps = false;

@@ -60,7 +60,7 @@
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar-right main_menu">
+                                <ul class="nav navbar-nav navbar main_menu">
                                     <li class="active"><a href="#header">{{ $setting->menu ? $setting->menu['menu1'] : 'menu1' }} <span class="sr-only">(current)</span></a></li>
                                     <li><a href="#welcome">{{ $setting->menu ? $setting->menu['menu2'] : 'menu2' }}</a></li>
                                     <li><a href="#counter">{{ $setting->menu ? $setting->menu['menu3'] : 'menu3' }}</a></li>
@@ -71,6 +71,7 @@
                                     <li><a href="#galeri">{{ $setting->menu ? $setting->menu['menu8'] : 'menu8' }}</a></li>
                                     <li><a href="#berita">{{ $setting->menu ? $setting->menu['menu9'] : 'menu9' }}</a></li>
                                     <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu10'] : 'menu10' }}</a></li>
+                                    <li><a href="#artikel">{{ $setting->menu ? $setting->menu['menu11'] : 'menu11' }}</a></li>
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
@@ -104,11 +105,9 @@
                             <img src="img/img1.jpg" alt="...">
                             <div class="carousel-caption">
                                 <div class="slider_text">
-                                    <h3>Welcome</h3>
-                                    <h2>Kecamatan Trawas</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    <a href="" class="custom_btn">Read  More</a>
-                                </div>
+                                    <h3>{{ $setting->menu ? $setting->menu1['text1'] : 'text1' }}</h3>
+                                    <h2>{{ $setting->menu1 ? $setting->menu1['text2'] : 'text2' }}</h2>
+                                   </div>
                             </div>
                         </div>
                     </div>
@@ -118,10 +117,8 @@
                             <img src="img/img2.jpg" alt="...">
                             <div class="carousel-caption">
                                 <div class="slider_text">
-                                    <h3>Protect</h3>
-                                    <h2>nature the environment</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    <a href="" class="custom_btn">Read  More</a>
+                                    <h3>{{ $setting->menu ? $setting->menu1['text1'] : 'text1' }}</h3>
+                                    <h2>{{ $setting->menu1 ? $setting->menu1['text2'] : 'text2' }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -132,10 +129,8 @@
                             <img src="img/img3.jpg" alt="...">
                             <div class="carousel-caption">
                                 <div class="slider_text">
-                                    <h3>Protect</h3>
-                                    <h2>nature the environment</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    <a href="" class="custom_btn">Read  More</a>
+                                    <h3>{{ $setting->menu ? $setting->menu1['text1'] : 'text1' }}</h3>
+                                    <h2>{{ $setting->menu1 ? $setting->menu1['text2'] : 'text2' }}</h2>
                                 </div>
                             </div>
                         </div>
@@ -159,62 +154,23 @@
                 </div>
                 <!--End of row-->
                 <div class="row">
+                    @foreach($profil as $data)
                     <div class="col-md-3">
                         <div class="item">
                             <div class="single_item">
                                 <div class="item_list">
                                     <div class="welcome_icon">
-                                        <i class="fa fa-leaf"></i>
+                                    <i class="fa fa-leaf"></i>
                                     </div>
-                                    <h4>eco system</h4>
-                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
+                                    <h4>{{ $data->judul }}</h4>
+                                    <p>{{ $data->deskripsi }}</p>
                                 </div>
                             </div>
+                       
                         </div>
                     </div>
                     <!--End of col-md-3-->
-                    <div class="col-md-3">
-                        <div class="item">
-                            <div class="single_item">
-                                <div class="item_list">
-                                    <div class="welcome_icon">
-                                        <i class="fa fa-refresh"></i>
-                                    </div>
-                                    <h4>recycling</h4>
-                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-3-->
-                    <div class="col-md-3">
-                        <div class="item">
-                            <div class="single_item">
-                                <div class="item_list">
-                                    <div class="welcome_icon">
-                                        <i class="fa fa-tint"></i>
-                                    </div>
-                                    <h4>water refine</h4>
-                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-3-->
-                    <div class="col-md-3">
-                        <div class="item">
-                            <div class="single_item">
-                                <div class="item_list">
-                                    <div class="welcome_icon">
-                                        <i class="fa fa-cog"></i>
-                                    </div>
-                                    <h4>solar system</h4>
-                                    <p>Lorem ipsum dolor sit amet, eu qui modo expetendis reformidans ex sit set appetere sententiae seo eum in simul homero.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-3-->
+                    @endforeach
                 </div>
                 <!--End of row-->
             </div>
@@ -237,50 +193,19 @@
                     </div>
                     <!--End of row-->
                     <div class="row">
+                        @foreach($informasi as $data)
                         <div class="col-md-3">
                             <div class="counter_item text-center">
                                 <div class="sigle_counter_item">
                                     <img src="img/tree.png" alt="">
                                     <div class="counter_text">
-                                        <span class="counter">1542</span>
-                                        <p>tree cut</p>
+                                        <span class="counter">{{ $data->angka }}</span>
+                                        <p>{{ $data->teks }}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3">
-                            <div class="counter_item text-center">
-                                <div class="sigle_counter_item">
-                                    <img src="img/hand.png" alt="">
-                                    <div class="counter_text">
-                                        <span class="counter">1458</span>
-                                        <p>animal lost</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="counter_item text-center">
-                                <div class="sigle_counter_item">
-                                    <img src="img/tuhnder.png" alt="">
-                                    <div class="counter_text">
-                                        <span class="counter">9854</span>
-                                        <p>blubs collected</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="counter_item text-center">
-                                <div class="sigle_counter_item">
-                                    <img src="img/cloud.png" alt="">
-                                    <div class="counter_text">
-                                        <span class="counter">5412</span>
-                                        <p>water level</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!--End of row-->
                 </div>
@@ -767,6 +692,51 @@
             <!--End of container-->
         </section>
         <!--End of contact-->
+        
+        {{-- <section id="artikel">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="latest_artikel text-center">
+                                <h2>{{ $setting->menu ? $setting->menu['menu11'] : 'menu11' }}</h2>
+                                <p>{{ $setting->menu11 ? $setting->menu11['artikel'] : 'artikel' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End of row-->
+                    <div class="row">
+                        <div class="col-md-4">
+                                @foreach($artikel as $data)
+                            <div class="artikel_news">
+                                <div class="single_artikel_item">
+                                    <div class="artikel_img">
+                                        <img src="{{ asset('storage/img/artikel/' . $data->foto) }}" alt="">
+                                    </div>
+                                    <div class="artikel_content">
+                                        <a href=""><h3>{{ $data->judul }}</h3></a>
+                                        <div class="expert">
+                                            <div class="left-side text-left">
+                                                <p class="left_side">
+                                                    <span class="clock"><i class="fa fa-clock-o"></i></span>
+                                                    <span class="time">Aug 19, 2016</span>
+                                                    <a href=""><span class="admin"><i class="fa fa-user"></i> Admin</span></a>
+                                                </p>
+                                            </div>
+                                        </div>
+    
+                                        <p class="artikel_news_content">{{ $data->deskripsi }}</p>
+                                        <a href="" class="artikel_link">read more</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        <!--End of col-md-4-->
+                    </div>
+                    <!--End of row-->
+                </div>
+                <!--End of container-->
+            </section> --}}
 
         <!--Start of footer-->
         <section id="footer">

@@ -4,26 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Profil;
-use Illuminate\Support\Facades\Storage;
-
-class ProfilController extends Controller
+class ArtikelController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     public function index()
     {
-        $profil = Profil::all();
-        return view('profil.index', compact('profil'));
+        //
     }
 
     /**
@@ -33,7 +23,7 @@ class ProfilController extends Controller
      */
     public function create()
     {
-        return view('profil.create');
+        //
     }
 
     /**
@@ -44,12 +34,7 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-
-        $profil = Profil::create($request->except('foto'));
-
-
-        $profil->save();
-        return redirect()->route('profil.index')->with('success_msg', 'Berhasil Disimpan');
+        //
     }
 
     /**
@@ -71,7 +56,7 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        return view('profil.edit');
+        //
     }
 
     /**

@@ -17,7 +17,7 @@ class CreateInformasiTable extends Migration
             $table->increments('id');
             $table->string('angka');
             $table->string('teks');
-            $table->string('ikon');
+            $table->string('ikon')->nullable();
             $table->timestamps();
         });
     }

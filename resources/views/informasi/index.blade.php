@@ -13,7 +13,7 @@
                 <button type="submit" class="btn btn-success">Simpan</button>
                 <br>
                 <br>
-            
+                <a href="{{ route('informasi.create') }}" class="btn btn-warning">Ganti Text</a>
               </form>
     </div>
 </div>
