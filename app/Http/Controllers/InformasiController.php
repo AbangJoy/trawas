@@ -44,10 +44,8 @@ class InformasiController extends Controller
      */
     public function store(Request $request)
     {
-        $informasi = Informasi::create($request->except('foto'));
+        $informasi = Informasi::create($request->all());
 
-
-        $informasi->save();
         return redirect()->route('informasi.index')->with('success_msg', 'Berhasil Disimpan');
     }
 

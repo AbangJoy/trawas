@@ -47,11 +47,12 @@ class DesaController extends Controller
         ]);
 
         $desa = Desa::create($request->except('foto'));
-        $desa_image = $desa->id . '.' . $request->file('foto')->getClientOriginalExtension();
-        $desa->foto = $desa_image;
 
-        $request->file('foto')->storeAs('public/img/desa', $desa_image);
-        $desa->save();
+        $desa->update([
+            'foto' => $desa->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
+
+        $request->file('foto')->storeAs('public/img/desa', $desa->foto);
 
         return redirect()->route('desa.index')->with('success_msg', 'Berhasil Disimpan');
     }

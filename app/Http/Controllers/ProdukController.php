@@ -48,11 +48,11 @@ class ProdukController extends Controller
         ]);
 
         $produk = Produk::create($request->except('foto'));
-        $produk_image = $produk->id . '.' . $request->file('foto')->getClientOriginalExtension();
-        $produk->foto = $produk_image;
+        $produk->update([
+            'foto' => $produk->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
 
-        $request->file('foto')->storeAs('public/img/produk', $produk_image);
-        $produk->save();
+        $request->file('foto')->storeAs('public/img/produk', $produk->foto);
 
         return redirect()->route('produk.index')->with('success_msg', 'Berhasil Disimpan');
     }

@@ -51,11 +51,12 @@ class ArtikelController extends Controller
         ]);
 
         $artikel = Artikel::create($request->except('foto'));
-        $artikel_image = $artikel->id . '.' . $request->file('foto')->getClientOriginalExtension();
-        $artikel->foto = $artikel_image;
 
-        $request->file('foto')->storeAs('public/img/artikel', $artikel_image);
-        $artikel->save();
+        $artikel->update([
+            'foto' => $artikel->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
+
+        $request->file('foto')->storeAs('public/img/artikel', $artikel->foto);
 
         return redirect()->route('artikel.index')->with('success_msg', 'Berhasil Disimpan');
     }

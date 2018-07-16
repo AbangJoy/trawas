@@ -46,11 +46,12 @@ class GaleriController extends Controller
         ]);
 
         $galeri = Galeri::create($request->except('foto'));
-        $galeri_image = $galeri->id . '.' . $request->file('foto')->getClientOriginalExtension();
-        $galeri->foto = $galeri_image;
 
-        $request->file('foto')->storeAs('public/img/galeri', $galeri_image);
-        $galeri->save();
+        $galeri->update([
+            'foto' => $galeri->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
+
+        $request->file('foto')->storeAs('public/img/galeri', $galeri->foto);
 
         return redirect()->route('galeri.index')->with('success_msg', 'Berhasil Disimpan');
     }

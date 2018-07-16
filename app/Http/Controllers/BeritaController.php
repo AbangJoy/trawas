@@ -48,11 +48,12 @@ class BeritaController extends Controller
         ]);
 
         $berita = Berita::create($request->except('foto'));
-        $berita_image = $berita->id . '.' . $request->file('foto')->getClientOriginalExtension();
-        $berita->foto = $berita_image;
 
-        $request->file('foto')->storeAs('public/img/berita', $berita_image);
-        $berita->save();
+        $berita->update([
+            'foto' => $berita->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
+
+        $request->file('foto')->storeAs('public/img/berita', $berita->foto);
 
         return redirect()->route('berita.index')->with('success_msg', 'Berhasil Disimpan');
     }

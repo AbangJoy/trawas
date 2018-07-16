@@ -48,11 +48,12 @@ class WisataController extends Controller
         ]);
 
         $wisata = Wisata::create($request->except('foto'));
-        $wisata_image = $wisata->id . '.' . $request->file('foto')->getClientOriginalExtension();
-        $wisata->foto = $wisata_image;
 
-        $request->file('foto')->storeAs('public/img/wisata', $wisata_image);
-        $wisata->save();
+        $wisata->update([
+            'foto' => $wisata->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
+
+        $request->file('foto')->storeAs('public/img/wisata', $wisata->foto);
 
         return redirect()->route('wisata.index')->with('success_msg', 'Berhasil Disimpan');
     }

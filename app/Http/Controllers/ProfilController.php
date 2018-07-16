@@ -44,11 +44,8 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
+        $profil = Profil::create($request->all());
 
-        $profil = Profil::create($request->except('foto'));
-
-
-        $profil->save();
         return redirect()->route('profil.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
