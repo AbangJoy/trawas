@@ -296,42 +296,21 @@
                 <!--End of container-->
                 <div class="container">
                     <div class="row">
+                        @foreach($desa as $data)
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="notes">
                                 <div class="note blue">
                                     <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
+                                        <p>{{ $data->nama }}</p>
                                     </div>
-                                    <img src="img/environment.jpg" alt="">
+                                    <img src="{{ asset('storage/img/desa/' . $data->foto) }}" alt="">
                                 </div>
-                                <div class="note red">
-                                    <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
-                                    </div>
-                                    <img src="img/portfolio_1.jpg" alt="">
-                                </div>
-                                <div class="note green">
-                                    <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
-                                    </div>
-                                    <img src="img/cliemate.jpg" alt="">
-                                </div>
-                                <div class="note yellow">
-                                    <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
-                                    </div>
-                                    <img src="img/photography.jpg" alt="">
-                                </div>
-                                <div class="note black">
-                                    <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
-                                    </div>
-                                    <img src="img/species.jpg" alt="">
-                                </div>
+                                
                             </div>
                             <!--End of notes-->
                         </div>
                         <!--End of col-lg-12-->
+                        @endforeach
                     </div>
                     <!--End of row-->
                 </div>
@@ -558,42 +537,21 @@
                 <!--End of container-->
                 <div class="container">
                     <div class="row">
+                        @foreach($galeri as $data)
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="notes">
                                 <div class="note blue">
                                     <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
+                                        <p>{{ $data->deskripsi }}</p>
                                     </div>
-                                    <img src="img/environment.jpg" alt="">
+                                    <img src="{{ asset('storage/img/galeri/' . $data->foto) }}" alt="">
                                 </div>
-                                <div class="note red">
-                                    <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
-                                    </div>
-                                    <img src="img/portfolio_1.jpg" alt="">
-                                </div>
-                                <div class="note green">
-                                    <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
-                                    </div>
-                                    <img src="img/cliemate.jpg" alt="">
-                                </div>
-                                <div class="note yellow">
-                                    <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
-                                    </div>
-                                    <img src="img/photography.jpg" alt="">
-                                </div>
-                                <div class="note black">
-                                    <div class="img_overlay">
-                                        <p>Sun Homes, Dhaka</p>
-                                    </div>
-                                    <img src="img/species.jpg" alt="">
-                                </div>
+                                
                             </div>
                             <!--End of notes-->
                         </div>
                         <!--End of col-lg-12-->
+                        @endforeach
                     </div>
                     <!--End of row-->
                 </div>

@@ -13,7 +13,7 @@
                 <button type="submit" class="btn btn-success">Simpan</button>
                 <br>
                 <br>
-            
+                <a href="{{ route('galeri.create') }}" class="btn btn-warning">Tambah Foto</a>
               </form>
     </div>
 </div>

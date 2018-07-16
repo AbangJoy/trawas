@@ -8,6 +8,9 @@ use App\Kontak;
 use App\Beranda;
 use App\Profil;
 use App\Informasi;
+use App\Desa;
+
+use App\Galeri;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +30,9 @@ Route::get('/', function () {
     $beranda = Beranda::all();
     $profil = Profil::all();
     $informasi = Informasi::all();
-    return view('welcome', compact('staf', 'wisata', 'produk', 'berita', 'beranda', 'profil', 'informasi'));
+    $desa = Desa::all();
+    $galeri = Galeri::all();
+    return view('welcome', compact('staf', 'wisata', 'produk', 'berita', 'beranda', 'profil', 'informasi', 'desa', 'galeri'));
 })->name('index');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

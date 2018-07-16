@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Desa;
+use Illuminate\Support\Facades\Storage;
 
 class DesaController extends Controller
 {
@@ -40,7 +42,18 @@ class DesaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'foto' => 'image|mimes:jpeg'
+        ]);
+
+        $desa = Desa::create($request->except('foto'));
+        $desa_image = $desa->id . '.' . $request->file('foto')->getClientOriginalExtension();
+        $desa->foto = $desa_image;
+
+        $request->file('foto')->storeAs('public/img/desa/', $desa_image);
+        $desa->save();
+
+        return redirect()->route('desa.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**

@@ -15,9 +15,9 @@ class CreateDesaTable extends Migration
     {
         Schema::create('desa', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->string('nama');
-            $table->string('url');
+            $table->string('url')->nullable();
         });
     }
 

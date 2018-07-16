@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Galeri;
+use Illuminate\Support\Facades\Storage;
 
 class GaleriController extends Controller
 {
@@ -39,7 +41,18 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'foto' => 'image|mimes:jpeg'
+        ]);
+
+        $galeri = Galeri::create($request->except('foto'));
+        $galeri_image = $galeri->id . '.' . $request->file('foto')->getClientOriginalExtension();
+        $galeri->foto = $galeri_image;
+
+        $request->file('foto')->storeAs('public/img/galeri/', $galeri_image);
+        $galeri->save();
+
+        return redirect()->route('galeri.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**

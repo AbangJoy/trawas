@@ -8,7 +8,7 @@
             @csrf
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nama Desa</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                <input type="text" class="form-control" name="nama" placeholder="">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Pilih foto</label>
