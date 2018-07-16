@@ -95,14 +95,14 @@
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     @foreach($beranda as $data)
-                    <li data-target="#carousel-example-generic" data-slide-to="{{ $data->id }}" class="{{ $data->id == 1 ? 'active' : '' }}"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="{{ $data->id }}" class="{{ $data->id == $beranda->first()->id ? 'active' : '' }}"></li>
                     @endforeach
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     @foreach($beranda as $data)
-                    <div class="item {{ $data->id == 1 ? 'active' : '' }}">
+                    <div class="item {{ $data->id == $beranda->first()->id ? 'active' : '' }}">
                         <div class="slider_overlay">
                             <img src="{{ asset('storage/img/beranda/' . $data->foto) }}" alt="...">
                             <div class="carousel-caption">
