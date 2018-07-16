@@ -22,7 +22,8 @@ class BerandaController extends Controller
 
     public function index()
     {
-        return view('beranda.index');
+        $beranda = Beranda::all();
+        return view('beranda.index', compact('beranda'));
     }
 
     /**
@@ -45,15 +46,17 @@ class BerandaController extends Controller
     {
         //
         $request->validate([
-            'beranda' => 'image|mimes:jpeg'
+            'foto' => 'image|mimes:jpeg,png'
         ]);
 
         $beranda = Beranda::create($request->except('foto'));
-        $beranda_image = $beranda->id . '.' . $request->file('foto')->getClientOriginalExtension();
-        $beranda->foto = $beranda_image;
 
-        $request->file('foto')->storeAs('public/img/beranda/', $beranda_image);
-        $beranda->save();
+        $beranda->update([
+            'foto' => $beranda->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
+
+        $request->file('foto')->storeAs('public/img/beranda', $beranda->foto);
+
         return redirect()->route('beranda.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
@@ -76,7 +79,8 @@ class BerandaController extends Controller
      */
     public function edit($id)
     {
-        return view('beranda.edit');
+        $beranda = Beranda::find($id);
+        return view('beranda.edit', compact('beranda', 'id'));
     }
 
     /**
@@ -88,7 +92,20 @@ class BerandaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'foto' => 'image|mimes:jpeg,png'
+        ]);
+
+        $beranda = Beranda::find($id);
+
+        Storage::delete('public/img/beranda/' . $beranda->foto);
+
+        $beranda->update([
+            'foto' => $beranda->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
+
+        $request->file('foto')->storeAs('public/img/beranda', $beranda->foto);
+        return redirect()->route('beranda.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**
@@ -99,6 +116,12 @@ class BerandaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $beranda = Beranda::find($id);
+
+        Storage::delete('public/img/beranda/' . $beranda->foto);
+
+        $beranda->delete();
+
+        return redirect()->route('beranda.index')->with('success_msg', 'Berhasil Dihapus');
     }
 }

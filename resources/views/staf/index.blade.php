@@ -29,9 +29,9 @@
                     <td>{{ $data->nama }}</td>
                     <td>{{ $data->jabatan }}</td>
                     <td>{{ $data->motto }}</td>
-                    <td><a href="{{ action('StafController@edit', [$data->id]) }}" class="btn btn-default">Edit</a></td>
+                    <td><a href="{{ action('StafController@edit', $data->id) }}" class="btn btn-default">Edit</a></td>
                     <td>
-                        <form action="{{ action('StafController@destroy', [$data->id]) }}" method="POST">
+                        <form action="{{ action('StafController@destroy', $data->id) }}" method="POST">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger" type="submit">

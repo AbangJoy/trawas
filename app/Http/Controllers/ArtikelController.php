@@ -47,14 +47,14 @@ class ArtikelController extends Controller
     {
         //
         $request->validate([
-            'artikel' => 'image|mimes:jpeg'
+            'artikel' => 'image|mimes:jpeg,png'
         ]);
 
         $artikel = Artikel::create($request->except('foto'));
         $artikel_image = $artikel->id . '.' . $request->file('foto')->getClientOriginalExtension();
         $artikel->foto = $artikel_image;
 
-        $request->file('foto')->storeAs('public/img/artikel/', $artikel_image);
+        $request->file('foto')->storeAs('public/img/artikel', $artikel_image);
         $artikel->save();
 
         return redirect()->route('artikel.index')->with('success_msg', 'Berhasil Disimpan');

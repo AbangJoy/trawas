@@ -94,16 +94,17 @@
             <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    @foreach($beranda as $data)
+                    <li data-target="#carousel-example-generic" data-slide-to="{{ $data->id }}" class="{{ $data->id == 1 ? 'active' : '' }}"></li>
+                    @endforeach
                 </ol>
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
+                    @foreach($beranda as $data)
+                    <div class="item {{ $data->id == 1 ? 'active' : '' }}">
                         <div class="slider_overlay">
-                            <img src="img/img1.jpg" alt="...">
+                            <img src="{{ asset('storage/img/beranda/' . $data->foto) }}" alt="...">
                             <div class="carousel-caption">
                                 <div class="slider_text">
                                     <h3>{{ $setting->menu ? $setting->menu1['text1'] : 'text1' }}</h3>
@@ -113,30 +114,7 @@
                         </div>
                     </div>
                     <!--End of item With Active-->
-                    <div class="item">
-                        <div class="slider_overlay">
-                            <img src="img/img2.jpg" alt="...">
-                            <div class="carousel-caption">
-                                <div class="slider_text">
-                                    <h3>{{ $setting->menu ? $setting->menu1['text1'] : 'text1' }}</h3>
-                                    <h2>{{ $setting->menu1 ? $setting->menu1['text2'] : 'text2' }}</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of Item-->
-                    <div class="item">
-                        <div class="slider_overlay">
-                            <img src="img/img3.jpg" alt="...">
-                            <div class="carousel-caption">
-                                <div class="slider_text">
-                                    <h3>{{ $setting->menu ? $setting->menu1['text1'] : 'text1' }}</h3>
-                                    <h2>{{ $setting->menu1 ? $setting->menu1['text2'] : 'text2' }}</h2>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of item-->
+                    @endforeach
                 </div>
                 <!--End of Carousel Inner-->
             </div>

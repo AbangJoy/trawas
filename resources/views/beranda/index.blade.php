@@ -17,8 +17,29 @@
                 <button type="submit" class="btn btn-success">Simpan</button>
                 <br>
                 <br>
-                <a href="{{ route('beranda.create') }}" class="btn btn-warning">Ganti background</a>
-              </form>
+            </form>
+            <a href="{{ route('beranda.create') }}" class="btn btn-warning">Tambah Gambar background</a>
+              <table class="table-bordered">
+                <tr>
+                    <th>Foto</th>
+                    <th colspan="2">Action</th>
+                </tr>
+                @foreach($beranda as $data)
+                <tr>
+                    <td><img src="{{ asset('storage/img/beranda/' . $data->foto) }}" alt="" width="64" height="64"></td>
+                    <td><a href="{{ action('BerandaController@edit', $data->id) }}" class="btn btn-default">Edit</a></td>
+                    <td>
+                        <form action="{{ action('BerandaController@destroy', $data->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">
+                            Hapus
+                        </button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </table>
     </div>
 </div>
 

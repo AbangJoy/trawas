@@ -44,14 +44,14 @@ class BeritaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'berita' => 'image|mimes:jpeg'
+            'berita' => 'image|mimes:jpeg,png'
         ]);
 
         $berita = Berita::create($request->except('foto'));
         $berita_image = $berita->id . '.' . $request->file('foto')->getClientOriginalExtension();
         $berita->foto = $berita_image;
 
-        $request->file('foto')->storeAs('public/img/berita/', $berita_image);
+        $request->file('foto')->storeAs('public/img/berita', $berita_image);
         $berita->save();
 
         return redirect()->route('berita.index')->with('success_msg', 'Berhasil Disimpan');

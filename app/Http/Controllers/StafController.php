@@ -44,15 +44,16 @@ class StafController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'foto' => 'image|mimes:jpeg'
+            'foto' => 'image|mimes:jpeg,png'
         ]);
 
         $staf = Staf::create($request->except('foto'));
-        $staf_image = $staf->id . '.' . $request->file('foto')->getClientOriginalExtension();
-        $staf->foto = $staf_image;
 
-        $request->file('foto')->storeAs('public/img/staff/', $staf_image);
-        $staf->save();
+        $staf->update([
+            'foto' => $staf->id . '.' . $request->file('foto')->getClientOriginalExtension()
+        ]);
+
+        $request->file('foto')->storeAs('public/img/staff', $staf->foto);
 
         return redirect()->route('staf.index')->with('success_msg', 'Staf Berhasil Disimpan');
     }
@@ -95,11 +96,11 @@ class StafController extends Controller
         if ($request->hasFile('foto')) {
             Storage::delete('public/img/staff/' . $staf->foto);
 
-            $staf_image = $staf->id . '.' . $request->file('foto')->getClientOriginalExtension();
-            $staf->foto = $staf_image;
+            $staf->update([
+                'foto' => $staf->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            ]);
 
-            $request->file('foto')->storeAs('public/img/staff/', $staf_image);
-            $staf->save();
+            $request->file('foto')->storeAs('public/img/staff', $staf->foto);
         }
 
         return redirect()->route('staf.index')->with('success_msg', 'Data Staf Berhasil Diubah');
