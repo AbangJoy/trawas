@@ -4,23 +4,23 @@
 <div class="content-wrapper">
     <div class="container-fluid">
         @include('layouts.flash')
-        <form action="{{ url('wisata') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ url('artikel') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
-                    <label for="exampleFormControlInput1">Nama Wisata</label>
-                    <input type="text" name="nama" class="form-control" placeholder="nama">
-                </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Pilih foto</label>
                     <br>
                     <input type="file" name="foto" placeholder="foto" required>
                 </div>
                 <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Ganti deskripsi</label>
-                        <input type="text" name="deskripsi" class="form-control" placeholder="deskripsi">
+                    <label for="exampleFormControlInput1">Judul artikel</label>
+                    <input type="text" name="judul" class="form-control" placeholder="judul artikel" required>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Ganti isi</label>
+                    <label for="exampleFormControlTextarea1">Ganti deskripsi</label>
+                    <textarea class="form-control" name="deskripsi" rows="3"></textarea>    
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Ganti isi artikel</label>
                     <textarea class="form-control" name="isi" rows="8"></textarea>    
                 </div>
                 <button type="submit" class="btn btn-success">Simpan</button>

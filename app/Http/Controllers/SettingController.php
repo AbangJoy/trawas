@@ -95,4 +95,12 @@ class SettingController extends Controller
         ]);
         return redirect()->route('kontak.index')->with('success_msg', 'Berhasil disimpan');
     }
+
+    public function editMenu11(Request $request)
+    {
+        Setting::first()->update([
+            'menu11' => $request->except('_token')
+        ]);
+        return redirect()->route('artikel.index')->with('success_msg', 'Berhasil disimpan');
+    }
 }

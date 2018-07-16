@@ -17,8 +17,12 @@
                 </div>
                 <div class="form-group">
                         <label for="exampleFormControlTextarea1">Ganti deskripsi</label>
-                        <input type="text" name="deskripsi" rows="3" placeholder="deskripsi">
+                        <input type="text" name="deskripsi" class="form-control" rows="3" placeholder="deskripsi">
                       </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Ganti isi </label>
+                        <textarea class="form-control" name="isi" rows="8"></textarea>    
+                    </div>
                 <button type="submit" class="btn btn-success">Simpan</button>
         </form>
     </div>

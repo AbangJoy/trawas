@@ -70,8 +70,9 @@
                                     <li><a href="#produk">{{ $setting->menu ? $setting->menu['menu7'] : 'menu7' }}</a></li>
                                     <li><a href="#galeri">{{ $setting->menu ? $setting->menu['menu8'] : 'menu8' }}</a></li>
                                     <li><a href="#berita">{{ $setting->menu ? $setting->menu['menu9'] : 'menu9' }}</a></li>
-                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu10'] : 'menu10' }}</a></li>
                                     <li><a href="#artikel">{{ $setting->menu ? $setting->menu['menu11'] : 'menu11' }}</a></li>
+                                    <li><a href="#contact">{{ $setting->menu ? $setting->menu['menu10'] : 'menu10' }}</a></li>
+                                    
                                 </ul>
                             </div>
                             <!-- /.navbar-collapse -->
@@ -357,64 +358,7 @@
                        
                     </div>
                     <!--End of col-md-8-->
-                    <div class="col-md-4">
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
-                                    <img src="img/tree_cut_3.jpg" alt="">
-                                </div>
-                                <div class="event_news_text">
-                                    <a href="#"><h4>Let’s plant 200 tree each...</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
-                                    <img src="img/tree_cut_4.jpg" alt="">
-                                </div>
-                                <div class="event_news_text">
-                                    <a href="#"><h4>Keep your house envirome..</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
-                                    <img src="img/tree_cut_3.jpg" alt="">
-                                </div>
-                                <div class="event_news_text">
-                                    <a href="#"><h4>Urgent Clothe Needed Needed</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
-                                    <img src="img/tree_cut_4.jpg" alt="">
-                                </div>
-                                <div class="event_news_text">
-                                    <a href="#"><h4>One Tree Thousand Hope</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="event_news">
-                            <div class="event_single_item fix">
-                                <div class="event_news_img floatleft">
-                                    <img src="img/tree_cut_3.jpg" alt="">
-                                </div>
-                                <div class="event_news_text">
-                                    <a href="#"><h4>One Tree Thousand Hope</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-4-->
+                   
                 </div>
                 <!--End of row-->
             </div>
@@ -457,64 +401,7 @@
                         <!--End of row-->
                         </div>
                     <!--End of col-md-8-->
-                    <div class="col-md-4">
-                        <div class="produk_news">
-                            <div class="produk_single_item fix">
-                                <div class="produk_news_img floatleft">
-                                    <img src="img/tree_cut_3.jpg" alt="">
-                                </div>
-                                <div class="produk_news_text">
-                                    <a href="#"><h4>Let’s plant 200 tree each...</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="produk_news">
-                            <div class="produk_single_item fix">
-                                <div class="produk_news_img floatleft">
-                                    <img src="img/tree_cut_4.jpg" alt="">
-                                </div>
-                                <div class="produk_news_text">
-                                    <a href="#"><h4>Keep your house envirome..</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="produk_news">
-                            <div class="produk_single_item fix">
-                                <div class="produk_news_img floatleft">
-                                    <img src="img/tree_cut_3.jpg" alt="">
-                                </div>
-                                <div class="produk_news_text">
-                                    <a href="#"><h4>Urgent Clothe Needed Needed</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="produk_news">
-                            <div class="produk_single_item fix">
-                                <div class="produk_news_img floatleft">
-                                    <img src="img/tree_cut_4.jpg" alt="">
-                                </div>
-                                <div class="produk_news_text">
-                                    <a href="#"><h4>One Tree Thousand Hope</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="produk_news">
-                            <div class="produk_single_item fix">
-                                <div class="produk_news_img floatleft">
-                                    <img src="img/tree_cut_3.jpg" alt="">
-                                </div>
-                                <div class="produk_news_text">
-                                    <a href="#"><h4>One Tree Thousand Hope</h4></a>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, veniam.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of col-md-4-->
+                  
                 </div>
                 <!--End of row-->
             </div>
@@ -584,6 +471,7 @@
                                 <div class="berita_img">
                                     <img src="{{ asset('storage/img/berita/' . $data->foto) }}" alt="">
                                 </div>
+                                
                                 <div class="berita_content">
                                     <a href=""><h3>{{ $data->judul }}</h3></a>
                                     <div class="expert">
@@ -610,6 +498,50 @@
             <!--End of container-->
         </section>
         <!-- end of blog-->
+        <section id="artikel">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="latest_artikel text-center">
+                            <h2>{{ $setting->menu ? $setting->menu['menu11'] : 'menu11' }}</h2>
+                            <p>{{ $setting->menu11 ? $setting->menu11['artikel'] : 'artikel' }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!--End of row-->
+                <div class="row">
+                    <div class="col-md-4">
+                            @foreach($artikel as $data)
+                        <div class="artikel_news">
+                            <div class="single_artikel_item">
+                                <div class="artikel_img">
+                                    <img src="{{ asset('storage/img/artikel/' . $data->foto) }}" alt="">
+                                </div>
+                                <div class="artikel_content">
+                                    <a href=""><h3>{{ $data->judul }}</h3></a>
+                                    <div class="expert">
+                                        <div class="left-side text-left">
+                                            <p class="left_side">
+                                                <span class="clock"><i class="fa fa-clock-o"></i></span>
+                                                <span class="time">Aug 19, 2016</span>
+                                                <a href=""><span class="admin"><i class="fa fa-user"></i> Admin</span></a>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <p class="artikel_news_content">{{ $data->deskripsi }}</p>
+                                    <a href="" class="artikel_link">read more</a>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                    <!--End of col-md-4-->
+                </div>
+                <!--End of row-->
+            </div>
+            <!--End of container-->
+        </section>
 
         <!--Start of contact-->
         <section id="contact">
@@ -651,51 +583,7 @@
         </section>
         <!--End of contact-->
         
-        {{-- <section id="artikel">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="latest_artikel text-center">
-                                <h2>{{ $setting->menu ? $setting->menu['menu11'] : 'menu11' }}</h2>
-                                <p>{{ $setting->menu11 ? $setting->menu11['artikel'] : 'artikel' }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--End of row-->
-                    <div class="row">
-                        <div class="col-md-4">
-                                @foreach($artikel as $data)
-                            <div class="artikel_news">
-                                <div class="single_artikel_item">
-                                    <div class="artikel_img">
-                                        <img src="{{ asset('storage/img/artikel/' . $data->foto) }}" alt="">
-                                    </div>
-                                    <div class="artikel_content">
-                                        <a href=""><h3>{{ $data->judul }}</h3></a>
-                                        <div class="expert">
-                                            <div class="left-side text-left">
-                                                <p class="left_side">
-                                                    <span class="clock"><i class="fa fa-clock-o"></i></span>
-                                                    <span class="time">Aug 19, 2016</span>
-                                                    <a href=""><span class="admin"><i class="fa fa-user"></i> Admin</span></a>
-                                                </p>
-                                            </div>
-                                        </div>
-    
-                                        <p class="artikel_news_content">{{ $data->deskripsi }}</p>
-                                        <a href="" class="artikel_link">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                        <!--End of col-md-4-->
-                    </div>
-                    <!--End of row-->
-                </div>
-                <!--End of container-->
-            </section> --}}
-
+       
         <!--Start of footer-->
         <section id="footer">
             <div class="container">

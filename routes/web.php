@@ -10,6 +10,7 @@ use App\Profil;
 use App\Informasi;
 use App\Desa;
 
+use App\Artikel;
 use App\Galeri;
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,8 @@ Route::get('/', function () {
     $informasi = Informasi::all();
     $desa = Desa::all();
     $galeri = Galeri::all();
-    return view('welcome', compact('staf', 'wisata', 'produk', 'berita', 'beranda', 'profil', 'informasi', 'desa', 'galeri'));
+    $artikel = Artikel::all();
+    return view('welcome', compact('staf', 'wisata', 'produk', 'berita', 'beranda', 'profil', 'informasi', 'desa', 'galeri', 'artikel'));
 })->name('index');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
@@ -58,7 +60,7 @@ Route::post('menu7/edit', 'SettingController@editMenu7')->name('menu7.edit');
 Route::post('menu8/edit', 'SettingController@editMenu8')->name('menu8.edit');
 Route::post('menu9/edit', 'SettingController@editMenu9')->name('menu9.edit');
 Route::post('menu10/edit', 'SettingController@editMenu10')->name('menu10.edit');
-
+Route::post('menu11/edit', 'SettingController@editMenu11')->name('menu11.edit');
 
 Route::resource('beranda', 'BerandaController');
 Route::resource('staf', 'StafController');
@@ -70,3 +72,4 @@ Route::resource('berita', 'BeritaController');
 Route::resource('profil', 'ProfilController');
 Route::resource('informasi', 'InformasiController');
 Route::resource('kontak', 'KontakController');
+Route::resource('artikel', 'ArtikelController');

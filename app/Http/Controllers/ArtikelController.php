@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Artikel;
+use Illuminate\Support\Facades\Storage;
 
 class ArtikelController extends Controller
 {
@@ -10,10 +12,18 @@ class ArtikelController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+     * 
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
+        return view('artikel.index');
     }
 
     /**
@@ -24,6 +34,7 @@ class ArtikelController extends Controller
     public function create()
     {
         //
+        return view('artikel.create');
     }
 
     /**
@@ -35,6 +46,18 @@ class ArtikelController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'artikel' => 'image|mimes:jpeg'
+        ]);
+
+        $artikel = Artikel::create($request->except('foto'));
+        $artikel_image = $artikel->id . '.' . $request->file('foto')->getClientOriginalExtension();
+        $artikel->foto = $artikel_image;
+
+        $request->file('foto')->storeAs('public/img/artikel/', $artikel_image);
+        $artikel->save();
+
+        return redirect()->route('artikel.index')->with('success_msg', 'Berhasil Disimpan');
     }
 
     /**
@@ -57,6 +80,7 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         //
+        return view('artikel.edit');
     }
 
     /**
