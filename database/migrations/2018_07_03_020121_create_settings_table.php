@@ -28,6 +28,7 @@ class CreateSettingsTable extends Migration
             $table->text('menu9')->nullable();
             $table->text('menu10')->nullable();
             $table->text('menu11')->nullable();
+
         });
     }
 

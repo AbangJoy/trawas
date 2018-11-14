@@ -15,6 +15,34 @@
                 <br>
                 <a href="{{ route('berita.create') }}" class="btn btn-warning">Buat Berita</a>
               </form>
+
+              <table class="table-bordered">
+                    <tr>
+                        <th>Foto</th>
+                        <th>Judul</th>
+                        <th>Isi</th>
+                        <th>Deskripsi</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    @foreach($berita as $data)
+                    <tr>
+                        <td><img src="{{ asset('storage/img/berita/' . $data->foto) }}" alt="" width="64" height="64"></td>
+                        <td>{{ $data->judul }}</td>
+                        <td>{{ $data->isi }}</td>
+                        <td>{{ $data->deskripsi}}</td>
+                        <td><a href="{{ action('BeritaController@edit', $data->id) }}" class="btn btn-default">Edit</a></td>
+                        <td>
+                            <form action="{{ action('BeritaController@destroy', $data->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">
+                                Hapus
+                            </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
     </div>
 </div>
 

@@ -15,6 +15,34 @@
                 <br>
                 <a href="{{ route('wisata.create') }}" class="btn btn-warning">Tambah Wisata</a>
               </form>
+
+              <table class="table-bordered">
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nama</th>
+                        <th>Deskripsi</th>
+                        <th>Isi</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    @foreach($wisata as $data)
+                    <tr>
+                        <td><img src="{{ asset('storage/img/wisata/' . $data->foto) }}" alt="" width="64" height="64"></td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->deskripsi }}</td>
+                        <td>{{ $data->isi}}</td>
+                        <td><a href="{{ action('WisataController@edit', $data->id) }}" class="btn btn-default">Edit</a></td>
+                        <td>
+                            <form action="{{ action('WisataController@destroy', $data->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">
+                                Hapus
+                            </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
     </div>
 </div>
 

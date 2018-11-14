@@ -22,7 +22,8 @@ class BeritaController extends Controller
 
     public function index()
     {
-        return view('berita.index');
+        $berita = berita::all();
+        return view('berita.index', compact('berita'));
     }
 
     /**
@@ -77,7 +78,8 @@ class BeritaController extends Controller
      */
     public function edit($id)
     {
-        return view('berita.edit');
+        $berita = berita::find($id);
+        return view('berita.edit', compact('berita', 'id'));
     }
 
     /**
@@ -89,7 +91,20 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $berita = berita::find($id);
+        $berita->update($request->except('foto'));
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/img/berita/' . $berita->foto);
+
+            $berita->update([
+                'foto' => $berita->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            ]);
+
+            $request->file('foto')->storeAs('public/img/berita', $berita->foto);
+        }
+
+        return redirect()->route('berita.index')->with('success_msg', 'Data berita Berhasil Diubah');
     }
 
     /**
@@ -100,6 +115,12 @@ class BeritaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $berita = berita::find($id);
+
+        Storage::delete('public/img/beritaf/' . $berita->foto);
+
+        $berita->delete();
+
+        return redirect()->route('berita.index')->with('success_msg', 'berita Berhasil Dihapus');
     }
 }

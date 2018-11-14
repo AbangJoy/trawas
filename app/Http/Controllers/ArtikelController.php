@@ -22,8 +22,8 @@ class ArtikelController extends Controller
 
     public function index()
     {
-        //
-        return view('artikel.index');
+        $artikel = artikel::all();
+        return view('artikel.index', compact('artikel'));
     }
 
     /**
@@ -80,8 +80,8 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        //
-        return view('artikel.edit');
+        $artikel = artikel::find($id);
+        return view('artikel.edit', compact('artikel', 'id'));
     }
 
     /**
@@ -93,7 +93,20 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $artikel = artikel::find($id);
+        $artikel->update($request->except('foto'));
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/img/artikel/' . $artikel->foto);
+
+            $artikel->update([
+                'foto' => $artikel->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            ]);
+
+            $request->file('foto')->storeAs('public/img/artikel', $artikel->foto);
+        }
+
+        return redirect()->route('artikel.index')->with('success_msg', 'Data artikel Berhasil Diubah');
     }
 
     /**
@@ -104,6 +117,12 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $artikel = artikel::find($id);
+
+        Storage::delete('public/img/artikelf/' . $artikel->foto);
+
+        $artikel->delete();
+
+        return redirect()->route('artikel.index')->with('success_msg', 'artikel Berhasil Dihapus');
     }
 }

@@ -22,7 +22,8 @@ class WisataController extends Controller
 
     public function index()
     {
-        return view('wisata.index');
+        $wisata = wisata::all();
+        return view('wisata.index', compact('wisata'));
     }
 
     /**
@@ -66,7 +67,7 @@ class WisataController extends Controller
      */
     public function show($id)
     {
-        //
+         //
     }
 
     /**
@@ -77,7 +78,8 @@ class WisataController extends Controller
      */
     public function edit($id)
     {
-        return view('wisata.edit');
+        $wisata = wisata::find($id);
+        return view('wisata.edit', compact('wisata', 'id'));
     }
 
     /**
@@ -89,7 +91,20 @@ class WisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $wisata = wisata::find($id);
+        $wisata->update($request->except('foto'));
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/img/wisata/' . $wisata->foto);
+
+            $wisata->update([
+                'foto' => $wisata->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            ]);
+
+            $request->file('foto')->storeAs('public/img/wisata', $wisata->foto);
+        }
+
+        return redirect()->route('wisata.index')->with('success_msg', 'Data wisata Berhasil Diubah');
     }
 
     /**
@@ -100,6 +115,12 @@ class WisataController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $wisata = wisata::find($id);
+
+        Storage::delete('public/img/wisataf/' . $wisata->foto);
+
+        $wisata->delete();
+
+        return redirect()->route('wisata.index')->with('success_msg', 'wisata Berhasil Dihapus');
     }
 }

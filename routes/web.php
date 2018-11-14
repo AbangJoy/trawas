@@ -9,7 +9,6 @@ use App\Beranda;
 use App\Profil;
 use App\Informasi;
 use App\Desa;
-
 use App\Artikel;
 use App\Galeri;
 /*
@@ -70,6 +69,6 @@ Route::resource('produk', 'ProdukController');
 Route::resource('galeri', 'GaleriController');
 Route::resource('berita', 'BeritaController');
 Route::resource('profil', 'ProfilController');
-Route::resource('informasi', 'InformasiController');
 Route::resource('kontak', 'KontakController');
+Route::resource('informasi', 'InformasiController');
 Route::resource('artikel', 'ArtikelController');

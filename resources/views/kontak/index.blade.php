@@ -15,21 +15,21 @@
                     <input type="text" class="form-control" name="judul" placeholder="">
                 </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Text1</label>
-                <input type="text" class="form-control" name="text1" placeholder="">
+                <label for="exampleFormControlInput1">Lokasi</label>
+                <input type="text" class="form-control" name="lokasi" placeholder="">
             </div>
             <div class="form-group">
-                    <label for="exampleFormControlInput1">Text2</label>
-                    <input type="text" class="form-control" name="text2" placeholder="">
+                    <label for="exampleFormControlInput1">Telp</label>
+                    <input type="text" class="form-control" name="telp" placeholder="">
                 </div>
                 <div class="form-group">
-                        <label for="exampleFormControlInput1">Text3</label>
-                        <input type="text" class="form-control" name="text3" placeholder="">
+                        <label for="exampleFormControlInput1">Email</label>
+                        <input type="text" class="form-control" name="email" placeholder="">
                     </div>
                 <button type="submit" class="btn btn-success">Simpan</button>
                 <br>
                 <br>
-                <a href="{{ route('kontak.create') }}" class="btn btn-warning">Ubah Informasi Kontak</a>
+            
               </form>
     </div>
 </div>

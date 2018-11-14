@@ -20,7 +20,8 @@ class GaleriController extends Controller
     }
     public function index()
     {
-        return view('galeri.index');
+        $galeri = galeri::all();
+        return view('galeri.index', compact('galeri'));
     }
 
     /**
@@ -75,7 +76,8 @@ class GaleriController extends Controller
      */
     public function edit($id)
     {
-        return view('galeri.edit');
+        $galeri = galeri::find($id);
+        return view('galeri.edit', compact('galeri', 'id'));
     }
 
     /**
@@ -87,7 +89,20 @@ class GaleriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $galeri = galeri::find($id);
+        $galeri->update($request->except('foto'));
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/img/galeri/' . $galeri->foto);
+
+            $galeri->update([
+                'foto' => $galeri->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            ]);
+
+            $request->file('foto')->storeAs('public/img/galeri', $galeri->foto);
+        }
+
+        return redirect()->route('galeri.index')->with('success_msg', 'Data galeri Berhasil Diubah');
     }
 
     /**
@@ -98,6 +113,12 @@ class GaleriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $galeri = galeri::find($id);
+
+        Storage::delete('public/img/galerif/' . $galeri->foto);
+
+        $galeri->delete();
+
+        return redirect()->route('galeri.index')->with('success_msg', 'galeri Berhasil Dihapus');
     }
 }

@@ -60,8 +60,8 @@
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar main_menu">
-                                    <li class="active"><a href="#header">{{ $setting->menu ? $setting->menu['menu1'] : 'menu1' }} <span class="sr-only">(current)</span></a></li>
+                                <ul class="nav navbar-nav navbar main_menu" style="width: 105%; margin-left: -25px;">
+                                    <li class="active"><a href="#header">{{ $setting->menu ? $setting->menu['menu1'] : 'menu1' }}</a></li>
                                     <li><a href="#welcome">{{ $setting->menu ? $setting->menu['menu2'] : 'menu2' }}</a></li>
                                     <li><a href="#counter">{{ $setting->menu ? $setting->menu['menu3'] : 'menu3' }}</a></li>
                                     <li><a href="#testimonial">{{ $setting->menu ? $setting->menu['menu4'] : 'menu4' }}</a></li>
@@ -275,21 +275,21 @@
                 <!--End of container-->
                 <div class="container">
                     <div class="row">
-                        @foreach($desa as $data)
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <div class="notes">
-                                <div class="note blue">
+                                    @foreach($desa as $data)
+                                <div class="note green">
                                     <div class="img_overlay">
                                         <p>{{ $data->nama }}</p>
                                     </div>
                                     <img src="{{ asset('storage/img/desa/' . $data->foto) }}" alt="">
                                 </div>
                                 
+                                @endforeach
                             </div>
                             <!--End of notes-->
                         </div>
                         <!--End of col-lg-12-->
-                        @endforeach
                     </div>
                     <!--End of row-->
                 </div>
@@ -311,7 +311,7 @@
                 </div>
                 <!--End of row-->
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-8" style="margin-left: 17%;">
                         <div class="row">
                             @foreach($wisata as $data)
                             <div class="col-md-6 zero_mp">
@@ -332,17 +332,11 @@
                             </div>
                             @endforeach
                         </div>
-                        <!--End of row-->
-                       
                     </div>
-                    <!--End of col-md-8-->
-                   
                 </div>
-                <!--End of row-->
             </div>
-            <!--End of container-->
         </section>
-        <!--end of event-->
+        
         <section id="produk">
             <div class="container">
                 <div class="row">
@@ -354,13 +348,13 @@
                     </div>
                 </div>
                 <!--End of row-->
-                <div class="row">
-                    <div class="col-md-8">
+                <div class="row" >
+                    <div class="col-md-8" style="margin-left: 17%;">
                         <div class="row">
                                 @foreach($produk as $data)
                             <div class="col-md-6 zero_mp">
-                                <div class="produk_item">
-                                    <div class="produk_img">
+                                <div class="event_item">
+                                    <div class="event_img">
                                         <img src="{{ asset('storage/img/produk/' . $data->foto) }}" alt="">
                                     </div>
                                 </div>
@@ -402,21 +396,21 @@
                 <!--End of container-->
                 <div class="container">
                     <div class="row">
-                        @foreach($galeri as $data)
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="notes">
-                                <div class="note blue">
+                            <div class="notes" style="margin-left: 4%;">
+                                    @foreach($galeri as $data)
+                                <div class="note red">
                                     <div class="img_overlay">
                                         <p>{{ $data->deskripsi }}</p>
                                     </div>
                                     <img src="{{ asset('storage/img/galeri/' . $data->foto) }}" alt="">
                                 </div>
+                                @endforeach
                                 
                             </div>
                             <!--End of notes-->
                         </div>
                         <!--End of col-lg-12-->
-                        @endforeach
                     </div>
                     <!--End of row-->
                 </div>
@@ -442,14 +436,13 @@
                 </div>
                 <!--End of row-->
                 <div class="row">
+                    @foreach($berita as $data)
                     <div class="col-md-4">
-                            @foreach($berita as $data)
                         <div class="berita_news">
                             <div class="single_berita_item">
                                 <div class="berita_img">
                                     <img src="{{ asset('storage/img/berita/' . $data->foto) }}" alt="">
                                 </div>
-                                
                                 <div class="berita_content">
                                     <a href=""><h3>{{ $data->judul }}</h3></a>
                                     <div class="expert">
@@ -461,15 +454,15 @@
                                             </p>
                                         </div>
                                     </div>
-
                                     <p class="berita_news_content">{{ $data->deskripsi }}</p>
                                     <a href="" class="berita_link">read more</a>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
+                      
                     </div>
                     <!--End of col-md-4-->
+                    @endforeach
                 </div>
                 <!--End of row-->
             </div>
@@ -488,8 +481,8 @@
                 </div>
                 <!--End of row-->
                 <div class="row">
+                    @foreach($artikel as $data)
                     <div class="col-md-4">
-                            @foreach($artikel as $data)
                         <div class="artikel_news">
                             <div class="single_artikel_item">
                                 <div class="artikel_img">
@@ -512,8 +505,8 @@
                                 </div>
                             </div>
                         </div>
-                        @endforeach
                     </div>
+                    @endforeach
                     <!--End of col-md-4-->
                 </div>
                 <!--End of row-->
@@ -537,17 +530,17 @@
                     <div class="col-md-6">
                         <div class="office">
                             <div class="title">
-                                <h5>our office info</h5>
+                                <h5>{{ $setting->menu10 ? $setting->menu10['judul'] : 'judul' }}</h5>
                             </div>
                             <div class="office_location">
                                 <div class="address">
-                                    <i class="fa fa-map-marker"><span>Elephant Road, Dhaka 1205, Bangladesh</span></i>
+                                    <i class="fa fa-map-marker"><span>{{ $setting->menu10 ? $setting->menu10['lokasi'] : 'lokasi' }}</span></i>
                                 </div>
                                 <div class="phone">
-                                    <i class="fa fa-phone"><span>+ 8801532-987039</span></i>
+                                    <i class="fa fa-phone"><span>{{ $setting->menu10 ? $setting->menu10['telp'] : 'telp' }}</span></i>
                                 </div>
                                 <div class="email">
-                                    <i class="fa fa-envelope"><span>youremail@mail.com</span></i>
+                                    <i class="fa fa-envelope"><span>{{ $setting->menu10 ? $setting->menu10['email'] : 'email' }}</span></i>
                                 </div>
                                 <div id="map"></div>
                             </div>
@@ -562,26 +555,7 @@
         <!--End of contact-->
         
        
-        <!--Start of footer-->
-        <section id="footer">
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-md-6">
-                        <div class="copyright">
-                            <p>@ 2016 - Design By <span><a href="">&#9798;</a></span></p>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="designer">
-                            <p>A Design By <a href="#">XpeedStudio</a></p>
-                        </div>
-                    </div>
-                </div>
-                <!--End of row-->
-            </div>
-            <!--End of container-->
-        </section>
-        <!--End of footer-->
+       
 
         <!--Scroll to top-->
         <a href="#" id="back-to-top" title="Back to top">&uarr;</a>

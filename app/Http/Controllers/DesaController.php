@@ -21,7 +21,8 @@ class DesaController extends Controller
 
     public function index()
     {
-        return view('desa.index');
+        $desa = desa::all();
+        return view('desa.index', compact('desa'));
     }
 
     /**
@@ -76,7 +77,8 @@ class DesaController extends Controller
      */
     public function edit($id)
     {
-        return view('desa.edit');
+        $desa = desa::find($id);
+        return view('desa.edit', compact('desa', 'id'));
     }
 
     /**
@@ -88,7 +90,20 @@ class DesaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $desa = desa::find($id);
+        $desa->update($request->except('foto'));
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/img/desa/' . $desa->foto);
+
+            $desa->update([
+                'foto' => $desa->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            ]);
+
+            $request->file('foto')->storeAs('public/img/desa', $desa->foto);
+        }
+
+        return redirect()->route('desa.index')->with('success_msg', 'Data desa Berhasil Diubah');
     }
 
     /**
@@ -99,6 +114,12 @@ class DesaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $desa = desa::find($id);
+
+        Storage::delete('public/img/desaf/' . $desa->foto);
+
+        $desa->delete();
+
+        return redirect()->route('desa.index')->with('success_msg', 'desa Berhasil Dihapus');
     }
 }

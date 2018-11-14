@@ -68,7 +68,8 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        return view('profil.edit');
+        $produk = produk::find($id);
+        return view('produk.edit', compact('produk', 'id'));
     }
 
     /**
@@ -80,7 +81,20 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produk = produk::find($id);
+        $produk->update($request->except('foto'));
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/img/produkf/' . $produk->foto);
+
+            $produk->update([
+                'foto' => $produk->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            ]);
+
+            $request->file('foto')->storeAs('public/img/produkf', $produk->foto);
+        }
+
+        return redirect()->route('produk.index')->with('success_msg', 'Data produk Berhasil Diubah');
     }
 
     /**
@@ -91,6 +105,12 @@ class ProfilController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $produk = produk::find($id);
+
+        Storage::delete('public/img/produkf/' . $produk->foto);
+
+        $produk->delete();
+
+        return redirect()->route('produk.index')->with('success_msg', 'produk Berhasil Dihapus');
     }
 }
