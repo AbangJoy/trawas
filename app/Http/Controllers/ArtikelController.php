@@ -17,12 +17,12 @@ class ArtikelController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');
     }
 
     public function index()
     {
-        $artikel = artikel::all();
+        $artikel = Artikel::all();
         return view('artikel.index', compact('artikel'));
     }
 
@@ -33,7 +33,6 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        //
         return view('artikel.create');
     }
 
@@ -45,12 +44,12 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
         $request->validate([
             'artikel' => 'image|mimes:jpeg,png'
         ]);
 
-        $artikel = Artikel::create($request->except('foto'));
+        $artikel = $user->artikel()->create($request->except('foto'));
 
         $artikel->update([
             'foto' => $artikel->id . '.' . $request->file('foto')->getClientOriginalExtension()
@@ -69,7 +68,9 @@ class ArtikelController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Artikel::find($id);
+
+        return view('show', compact('data'));
     }
 
     /**
@@ -80,7 +81,7 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        $artikel = artikel::find($id);
+        $artikel = Artikel::find($id);
         return view('artikel.edit', compact('artikel', 'id'));
     }
 
@@ -93,7 +94,7 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $artikel = artikel::find($id);
+        $artikel = Artikel::find($id);
         $artikel->update($request->except('foto'));
 
         if ($request->hasFile('foto')) {
@@ -117,9 +118,9 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        $artikel = artikel::find($id);
+        $artikel = Artikel::find($id);
 
-        Storage::delete('public/img/artikelf/' . $artikel->foto);
+        Storage::delete('public/img/artikel/' . $artikel->foto);
 
         $artikel->delete();
 

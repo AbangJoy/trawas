@@ -60,7 +60,7 @@
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse zero_mp" id="bs-example-navbar-collapse-1">
-                                <ul class="nav navbar-nav navbar main_menu" style="width: 105%; margin-left: -25px;">
+                                <ul class="nav navbar-nav navbar main_menu" style="width: 108%; margin-left: -25px;">
                                     <li class="active"><a href="#header">{{ $setting->menu ? $setting->menu['menu1'] : 'menu1' }}</a></li>
                                     <li><a href="#welcome">{{ $setting->menu ? $setting->menu['menu2'] : 'menu2' }}</a></li>
                                     <li><a href="#counter">{{ $setting->menu ? $setting->menu['menu3'] : 'menu3' }}</a></li>
@@ -91,7 +91,7 @@
 
         <!--Start of slider section-->
         <section id="slider">
-            <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
+            <div id="carousel-example-generic" class="carousel slide carousel-fade" data-ride="carousel" data-interval="2500">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
                     @foreach($beranda as $data)
@@ -224,8 +224,8 @@
                                                 <div class="row">
                                                     @foreach($staf as $data)
                                                     <div class="col-md-6">
-                                                        <div class="profile-circle">
-                                                            <img src="{{ asset('storage/img/staff/' . $data->foto) }}" alt="">
+                                                        <div class="profile-circle smal">
+                                                            <img src="{{ asset('storage/img/staff/' . $data->foto) }}" alt="" style="width: 95px; height: 95px;">
                                                         </div>
                                                         <div class="testimonial_content">
                                                             <i class="fa fa-quote-left"></i>
@@ -311,7 +311,7 @@
                 </div>
                 <!--End of row-->
                 <div class="row">
-                    <div class="col-md-8" style="margin-left: 17%;">
+                    <div class="col-md-10" style="margin-left: 8%;">
                         <div class="row">
                             @foreach($wisata as $data)
                             <div class="col-md-6 zero_mp">
@@ -326,7 +326,7 @@
                                     <div class="event_text text-center">
                                         <a href=""><h4>{{ $data->nama }}</h4></a>
                                         <p>{{ $data->deskripsi }}</p>
-                                        <a href="" class="event_btn">read more</a>
+                                        <a href="{{ action('WisataController@show', ['id' => $data->id]) }}" class="event_btn">read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -340,7 +340,7 @@
         <section id="produk">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="col-lg-12 col-md-10 col-sm-12 col-xs-12">
                         <div class="produk_header text-center">
                             <h2>{{ $setting->menu ? $setting->menu['menu7'] : 'menu7' }}</h2>
                             <p>{{ $setting->menu6 ? $setting->menu6['deskripsi'] : 'deskripsi' }}</p>
@@ -349,10 +349,10 @@
                 </div>
                 <!--End of row-->
                 <div class="row" >
-                    <div class="col-md-8" style="margin-left: 17%;">
+                    <div class="col-md-10" style="margin-left:10%;">
                         <div class="row">
                                 @foreach($produk as $data)
-                            <div class="col-md-6 zero_mp">
+                            <div class="col-md-5 zero_mp" style="margin-left:3%;">
                                 <div class="event_item">
                                     <div class="event_img">
                                         <img src="{{ asset('storage/img/produk/' . $data->foto) }}" alt="">
@@ -364,7 +364,7 @@
                                     <div class="produk_text text-center">
                                         <a href=""><h4>{{ $data->nama }}</h4></a>
                                         <p>{{ $data->deskripsi }}</p>
-                                        <a href="" class="produk_btn">read more</a>
+                                        <a href="{{ action('ProdukController@show', ['id' => $data->id]) }}" class="produk_btn">read more</a>
                                     </div>
                                 </div>
                             </div>
@@ -437,8 +437,8 @@
                 <!--End of row-->
                 <div class="row">
                     @foreach($berita as $data)
-                    <div class="col-md-4">
-                        <div class="berita_news">
+                    <div class="col-md-6">
+                        <div class="berita_news" style="height:700px; width: 500px; border:solid 1px;">
                             <div class="single_berita_item">
                                 <div class="berita_img">
                                     <img src="{{ asset('storage/img/berita/' . $data->foto) }}" alt="">
@@ -449,13 +449,13 @@
                                         <div class="left-side text-left">
                                             <p class="left_side">
                                                 <span class="clock"><i class="fa fa-clock-o"></i></span>
-                                                <span class="time">Aug 19, 2016</span>
+                                                <span class="time">{{ $data->created_at }}</span>
                                                 <a href=""><span class="admin"><i class="fa fa-user"></i> Admin</span></a>
                                             </p>
                                         </div>
                                     </div>
                                     <p class="berita_news_content">{{ $data->deskripsi }}</p>
-                                    <a href="" class="berita_link">read more</a>
+                                    <a href="{{ action('BeritaController@show', ['id' => $data->id]) }}" class="berita_link">read more</a>
                                 </div>
                             </div>
                         </div>
@@ -469,20 +469,20 @@
             <!--End of container-->
         </section>
         <!-- end of blog-->
-        <section id="artikel">
+        <section id="artikel" style="height: 900px; width: 600px; padding: 100px;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="latest_artikel text-center">
                             <h2>{{ $setting->menu ? $setting->menu['menu11'] : 'menu11' }}</h2>
-                            <p>{{ $setting->menu11 ? $setting->menu11['artikel'] : 'artikel' }}</p>
+                            <p>{{ $setting->menu11 ? $setting->menu11['deskripsi'] : 'artikel' }}</p>
                         </div>
                     </div>
                 </div>
                 <!--End of row-->
                 <div class="row">
                     @foreach($artikel as $data)
-                    <div class="col-md-4">
+                    <div class="col-md-4" style="margin-left: 50px; height:620px; width: 400px; border:solid 1px;">
                         <div class="artikel_news">
                             <div class="single_artikel_item">
                                 <div class="artikel_img">
@@ -494,14 +494,14 @@
                                         <div class="left-side text-left">
                                             <p class="left_side">
                                                 <span class="clock"><i class="fa fa-clock-o"></i></span>
-                                                <span class="time">Aug 19, 2016</span>
+                                                <span class="time">{{ $data->created_at }}</span>
                                                 <a href=""><span class="admin"><i class="fa fa-user"></i> Admin</span></a>
                                             </p>
                                         </div>
                                     </div>
 
                                     <p class="artikel_news_content">{{ $data->deskripsi }}</p>
-                                    <a href="" class="artikel_link">read more</a>
+                                    <a href="{{ action('ArtikelController@show', ['id' => $data->id]) }}" class="artikel_link">read more</a>
                                 </div>
                             </div>
                         </div>

@@ -20,7 +20,7 @@ class GaleriController extends Controller
     }
     public function index()
     {
-        $galeri = galeri::all();
+        $galeri = Galeri::all();
         return view('galeri.index', compact('galeri'));
     }
 
@@ -42,11 +42,12 @@ class GaleriController extends Controller
      */
     public function store(Request $request)
     {
+        $user = auth()->user();
         $request->validate([
             'foto' => 'image|mimes:jpeg,png'
         ]);
 
-        $galeri = Galeri::create($request->except('foto'));
+        $galeri = $user->galeri()->create($request->except('foto'));
 
         $galeri->update([
             'foto' => $galeri->id . '.' . $request->file('foto')->getClientOriginalExtension()
@@ -76,7 +77,7 @@ class GaleriController extends Controller
      */
     public function edit($id)
     {
-        $galeri = galeri::find($id);
+        $galeri = Galeri::find($id);
         return view('galeri.edit', compact('galeri', 'id'));
     }
 
@@ -89,7 +90,7 @@ class GaleriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $galeri = galeri::find($id);
+        $galeri = Galeri::find($id);
         $galeri->update($request->except('foto'));
 
         if ($request->hasFile('foto')) {
@@ -113,9 +114,9 @@ class GaleriController extends Controller
      */
     public function destroy($id)
     {
-        $galeri = galeri::find($id);
+        $galeri = Galeri::find($id);
 
-        Storage::delete('public/img/galerif/' . $galeri->foto);
+        Storage::delete('public/img/galeri/' . $galeri->foto);
 
         $galeri->delete();
 

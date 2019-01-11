@@ -17,12 +17,12 @@ class WisataController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');
     }
 
     public function index()
     {
-        $wisata = wisata::all();
+        $wisata = Wisata::all();
         return view('wisata.index', compact('wisata'));
     }
 
@@ -44,11 +44,12 @@ class WisataController extends Controller
      */
     public function store(Request $request)
     {
+        $user = auth()->user();
         $request->validate([
             'wisata' => 'image|mimes:jpeg,png'
         ]);
 
-        $wisata = Wisata::create($request->except('foto'));
+        $wisata = $user->wisata()->create($request->except('foto'));
 
         $wisata->update([
             'foto' => $wisata->id . '.' . $request->file('foto')->getClientOriginalExtension()
@@ -67,7 +68,9 @@ class WisataController extends Controller
      */
     public function show($id)
     {
-         //
+        $data = Wisata::find($id);
+
+        return view('show', compact('data'));
     }
 
     /**
@@ -78,7 +81,7 @@ class WisataController extends Controller
      */
     public function edit($id)
     {
-        $wisata = wisata::find($id);
+        $wisata = Wisata::find($id);
         return view('wisata.edit', compact('wisata', 'id'));
     }
 
@@ -91,7 +94,7 @@ class WisataController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $wisata = wisata::find($id);
+        $wisata = Wisata::find($id);
         $wisata->update($request->except('foto'));
 
         if ($request->hasFile('foto')) {
@@ -115,9 +118,9 @@ class WisataController extends Controller
      */
     public function destroy($id)
     {
-        $wisata = wisata::find($id);
+        $wisata = Wisata::find($id);
 
-        Storage::delete('public/img/wisataf/' . $wisata->foto);
+        Storage::delete('public/img/wisata/' . $wisata->foto);
 
         $wisata->delete();
 

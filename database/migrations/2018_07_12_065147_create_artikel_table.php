@@ -20,6 +20,7 @@ class CreateArtikelTable extends Migration
             $table->string('foto')->nullable();
             $table->string('deskripsi');
             $table->longText('isi');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

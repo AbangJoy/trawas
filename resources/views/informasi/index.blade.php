@@ -13,8 +13,33 @@
                 <button type="submit" class="btn btn-success">Simpan</button>
                 <br>
                 <br>
-                <a href="{{ route('informasi.create') }}" class="btn btn-warning">Ganti Text</a>
+                <a href="{{ route('informasi.create') }}" class="btn btn-warning">Tambah</a>
               </form>
+              <table class="table-bordered">
+                    <tr>
+                        <th>Id</th>
+                        <th>Angka</th>
+                        <th>Teks</th>
+                        <th colspan="2">Action</th>
+                    </tr>
+                    @foreach($informasi as $data)
+                    <tr>
+                        <td>{{ $data->id }}</td>
+                        <td>{{ $data->angka }}</td>
+                        <td>{{ $data->teks }}</td>
+                        <td><a href="{{ action('InformasiController@edit', $data->id) }}" class="btn btn-default">Edit</a></td>
+                        <td>
+                            <form action="{{ action('InformasiController@destroy', $data->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit">
+                                Hapus
+                            </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                </table>
     </div>
 </div>
 

@@ -8,6 +8,8 @@
         @include('layouts.flash')
         <form action="{{ url('staf') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <h3>Tambah data pada Staf</h3>
+            
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Pilih foto</label>
                     <br>

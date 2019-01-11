@@ -44,7 +44,8 @@ class InformasiController extends Controller
      */
     public function store(Request $request)
     {
-        $informasi = Informasi::create($request->all());
+        $user = auth()->user();
+        $informasi = $user->informasi()->create($request->all());
 
         return redirect()->route('informasi.index')->with('success_msg', 'Berhasil Disimpan');
     }
@@ -68,7 +69,8 @@ class InformasiController extends Controller
      */
     public function edit($id)
     {
-        return view('informasi.edit');
+        $informasi = Informasi::find($id);
+        return view('informasi.edit', compact('informasi', 'id'));
     }
 
     /**
@@ -80,7 +82,20 @@ class InformasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $informasi = Informasi::find($id);
+        $informasi->update($request->except('foto'));
+
+        if ($request->hasFile('foto')) {
+            Storage::delete('public/img/informasi/' . $informasi->foto);
+
+            $informasi->update([
+                'foto' => $informasi->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            ]);
+
+            $request->file('foto')->storeAs('public/img/informasi', $informasi->foto);
+        }
+
+        return redirect()->route('informasi.index')->with('success_msg', 'Data informasi Berhasil Diubah');
     }
 
     /**
@@ -91,6 +106,12 @@ class InformasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $informasi = Informasi::find($id);
+
+        Storage::delete('public/img/informasi/' . $informasi->foto);
+
+        $informasi->delete();
+
+        return redirect()->route('informasi.index')->with('success_msg', 'informasi Berhasil Dihapus');
     }
 }

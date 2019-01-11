@@ -44,12 +44,12 @@ class BerandaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = auth()->user();
         $request->validate([
             'foto' => 'image|mimes:jpeg,png'
         ]);
 
-        $beranda = Beranda::create($request->except('foto'));
+        $beranda = $user->beranda()->create($request->except('foto'));
 
         $beranda->update([
             'foto' => $beranda->id . '.' . $request->file('foto')->getClientOriginalExtension()

@@ -19,6 +19,8 @@ class CreateWisataTable extends Migration
             $table->string('nama');
             $table->text('deskripsi');
             $table->text('isi');
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
         });
     }
 

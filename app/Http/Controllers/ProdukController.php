@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Produk;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,12 +16,12 @@ class ProdukController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');
     }
 
     public function index()
     {
-        $produk = produk::all();
+        $produk = Produk::all();
         return view('produk.index', compact('produk'));
     }
 
@@ -44,11 +43,12 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
+        $user = auth()->user();
         $request->validate([
             'produk' => 'image|mimes:jpeg,png'
         ]);
 
-        $produk = Produk::create($request->except('foto'));
+        $produk = $user->produk()->create($request->except('foto'));
         $produk->update([
             'foto' => $produk->id . '.' . $request->file('foto')->getClientOriginalExtension()
         ]);
@@ -66,7 +66,9 @@ class ProdukController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Produk::find($id);
+
+        return view('show', compact('data'));
     }
 
     /**
@@ -77,7 +79,7 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        $produk = produk::find($id);
+        $produk = Produk::find($id);
         return view('produk.edit', compact('produk', 'id'));
     }
 
@@ -90,7 +92,7 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $produk = produk::find($id);
+        $produk = Produk::find($id);
         $produk->update($request->except('foto'));
 
         if ($request->hasFile('foto')) {
@@ -114,6 +116,13 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $produk = Produk::find($id);
+
+        Storage::delete('public/img/produk/' . $produk->foto);
+
+        $produk->delete();
+
+        return redirect()->route('produk.index')->with('success_msg', 'produk Berhasil Dihapus');
     }
 }
+ 

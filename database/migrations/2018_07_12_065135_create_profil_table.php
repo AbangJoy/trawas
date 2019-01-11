@@ -18,6 +18,8 @@ class CreateProfilTable extends Migration
             $table->string('ikon')->nullable();
             $table->string('judul');
             $table->text('deskripsi');
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
         });
     }
 

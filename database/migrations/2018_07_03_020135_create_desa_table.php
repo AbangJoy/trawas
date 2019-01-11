@@ -18,6 +18,8 @@ class CreateDesaTable extends Migration
             $table->string('foto')->nullable();
             $table->string('nama');
             $table->string('url')->nullable();
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
         });
     }
 

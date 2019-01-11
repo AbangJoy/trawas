@@ -17,12 +17,12 @@ class BeritaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except('show');
     }
 
     public function index()
     {
-        $berita = berita::all();
+        $berita = Berita::all();
         return view('berita.index', compact('berita'));
     }
 
@@ -44,11 +44,12 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        $user = auth()->user();
         $request->validate([
             'berita' => 'image|mimes:jpeg,png'
         ]);
 
-        $berita = Berita::create($request->except('foto'));
+        $berita = $user->berita()->create($request->except('foto'));
 
         $berita->update([
             'foto' => $berita->id . '.' . $request->file('foto')->getClientOriginalExtension()
@@ -67,7 +68,9 @@ class BeritaController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Berita::find($id);
+
+        return view('show', compact('data'));
     }
 
     /**
@@ -78,7 +81,7 @@ class BeritaController extends Controller
      */
     public function edit($id)
     {
-        $berita = berita::find($id);
+        $berita = Berita::find($id);
         return view('berita.edit', compact('berita', 'id'));
     }
 
@@ -91,7 +94,7 @@ class BeritaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $berita = berita::find($id);
+        $berita = Berita::find($id);
         $berita->update($request->except('foto'));
 
         if ($request->hasFile('foto')) {
@@ -115,9 +118,9 @@ class BeritaController extends Controller
      */
     public function destroy($id)
     {
-        $berita = berita::find($id);
+        $berita = Berita::find($id);
 
-        Storage::delete('public/img/beritaf/' . $berita->foto);
+        Storage::delete('public/img/berita/' . $berita->foto);
 
         $berita->delete();
 

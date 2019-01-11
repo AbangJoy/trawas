@@ -19,6 +19,8 @@ class CreateStafTable extends Migration
             $table->string('nama');
             $table->string('jabatan');
             $table->text('motto');
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
         });
     }
 

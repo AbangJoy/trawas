@@ -20,6 +20,7 @@ class CreateBeritaTable extends Migration
             $table->string('judul');
             $table->longText('isi');
             $table->text('deskripsi');
+            $table->unsignedInteger('user_id');
             $table->timestamps();
         });
     }

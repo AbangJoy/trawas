@@ -13,7 +13,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Pilih foto</label>
                     <br>
-                    <input type="file" name="foto" placeholder="foto" required>
+                    <input type="file" name="foto" placeholder="foto">
                 </div>
                 <div class="form-group">
                         <label for="exampleFormControlTextarea1">Ganti deskripsi</label>

@@ -43,11 +43,12 @@ class StafController extends Controller
      */
     public function store(Request $request)
     {
+        $user = auth()->user();
         $request->validate([
             'foto' => 'image|mimes:jpeg,png'
         ]);
 
-        $staf = Staf::create($request->except('foto'));
+        $staf = $user->staf()->create($request->except('foto'));
 
         $staf->update([
             'foto' => $staf->id . '.' . $request->file('foto')->getClientOriginalExtension()
@@ -116,7 +117,7 @@ class StafController extends Controller
     {
         $staf = Staf::find($id);
 
-        Storage::delete('public/img/staff/' . $staf->foto);
+        Storage::delete('public/img/staf/' . $staf->foto);
 
         $staf->delete();
 

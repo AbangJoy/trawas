@@ -44,7 +44,8 @@ class ProfilController extends Controller
      */
     public function store(Request $request)
     {
-        $profil = Profil::create($request->all());
+        $user = auth()->user();
+        $profil = $user->profil()->create($request->all());
 
         return redirect()->route('profil.index')->with('success_msg', 'Berhasil Disimpan');
     }
@@ -68,8 +69,8 @@ class ProfilController extends Controller
      */
     public function edit($id)
     {
-        $produk = produk::find($id);
-        return view('produk.edit', compact('produk', 'id'));
+        $profil = Profil::find($id);
+        return view('profil.edit', compact('profil', 'id'));
     }
 
     /**
@@ -81,20 +82,20 @@ class ProfilController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $produk = produk::find($id);
-        $produk->update($request->except('foto'));
+        $profil = Profil::find($id);
+        $profil->update($request->except('foto'));
 
         if ($request->hasFile('foto')) {
-            Storage::delete('public/img/produkf/' . $produk->foto);
+            Storage::delete('public/img/profilf/' . $profil->foto);
 
-            $produk->update([
-                'foto' => $produk->id . '.' . $request->file('foto')->getClientOriginalExtension()
+            $profil->update([
+                'foto' => $profil->id . '.' . $request->file('foto')->getClientOriginalExtension()
             ]);
 
-            $request->file('foto')->storeAs('public/img/produkf', $produk->foto);
+            $request->file('foto')->storeAs('public/img/profil', $profil->foto);
         }
 
-        return redirect()->route('produk.index')->with('success_msg', 'Data produk Berhasil Diubah');
+        return redirect()->route('profil.index')->with('success_msg', 'Data profil Berhasil Diubah');
     }
 
     /**
@@ -105,12 +106,12 @@ class ProfilController extends Controller
      */
     public function destroy($id)
     {
-        $produk = produk::find($id);
+        $profil = Profil::find($id);
 
-        Storage::delete('public/img/produkf/' . $produk->foto);
+        Storage::delete('public/img/profil/' . $profil->foto);
 
-        $produk->delete();
+        $profil->delete();
 
-        return redirect()->route('produk.index')->with('success_msg', 'produk Berhasil Dihapus');
+        return redirect()->route('profil.index')->with('success_msg', 'profil Berhasil Dihapus');
     }
 }

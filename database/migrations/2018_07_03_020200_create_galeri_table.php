@@ -17,6 +17,8 @@ class CreateGaleriTable extends Migration
             $table->increments('id');
             $table->string('foto')->nullable();
             $table->text('deskripsi');
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
         });
     }
 

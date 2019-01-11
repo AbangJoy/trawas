@@ -8,4 +8,9 @@ class Berita extends Model
 {
     protected $table = 'berita';
     protected $guarded = [];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

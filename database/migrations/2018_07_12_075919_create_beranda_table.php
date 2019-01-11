@@ -16,9 +16,8 @@ class CreateBerandaTable extends Migration
         Schema::create('beranda', function (Blueprint $table) {
             $table->increments('id');
             $table->string('foto')->nullable();
-
-
-
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
         });
     }
 

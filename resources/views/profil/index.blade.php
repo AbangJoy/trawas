@@ -15,7 +15,33 @@
                 <br>
                 
         </form>
-        <a href="{{ route('profil.create') }}" class="btn btn-warning">Ganti Text</a>
+        <a href="{{ route('profil.create') }}" class="btn btn-warning">Tambah Text</a>
+
+        <table class="table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Judul</th>
+                <th>Deskripsi</th>
+                <th colspan="2">Action</th>
+            </tr>
+            @foreach($profil as $data)
+            <tr>
+                <td>{{ $data->id }}</td>
+                <td>{{ $data->judul }}</td>
+                <td>{{ $data->deskripsi }}</td>
+                <td><a href="{{ action('ProfilController@edit', $data->id) }}" class="btn btn-default">Edit</a></td>
+                <td>
+                    <form action="{{ action('ProfilController@destroy', $data->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">
+                        Hapus
+                    </button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </table>
     </div>
 </div>
 

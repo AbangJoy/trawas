@@ -21,7 +21,7 @@ class DesaController extends Controller
 
     public function index()
     {
-        $desa = desa::all();
+        $desa = Desa::all();
         return view('desa.index', compact('desa'));
     }
 
@@ -43,11 +43,12 @@ class DesaController extends Controller
      */
     public function store(Request $request)
     {
+        $user = auth()->user();
         $request->validate([
             'foto' => 'image|mimes:jpeg,png'
         ]);
 
-        $desa = Desa::create($request->except('foto'));
+        $desa = $user->desa()->create($request->except('foto'));
 
         $desa->update([
             'foto' => $desa->id . '.' . $request->file('foto')->getClientOriginalExtension()
@@ -77,7 +78,7 @@ class DesaController extends Controller
      */
     public function edit($id)
     {
-        $desa = desa::find($id);
+        $desa = Desa::find($id);
         return view('desa.edit', compact('desa', 'id'));
     }
 
@@ -90,7 +91,7 @@ class DesaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $desa = desa::find($id);
+        $desa = Desa::find($id);
         $desa->update($request->except('foto'));
 
         if ($request->hasFile('foto')) {
@@ -114,9 +115,9 @@ class DesaController extends Controller
      */
     public function destroy($id)
     {
-        $desa = desa::find($id);
+        $desa = Desa::find($id);
 
-        Storage::delete('public/img/desaf/' . $desa->foto);
+        Storage::delete('public/img/desa/' . $desa->foto);
 
         $desa->delete();
 

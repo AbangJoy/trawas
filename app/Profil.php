@@ -8,5 +8,9 @@ class Profil extends Model
 {
     protected $table = 'profil';
     protected $guarded = [];
-    public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
